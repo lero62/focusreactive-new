@@ -1,0 +1,32 @@
+.btn, a.btn
+	position: relative
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	vertical-align: middle
+	height: 42px
+	padding: 0 24px
+	color: var(--color-black)
+	font: 500 14px/1 var(--base-font)
+	text-align: center
+	text-decoration: none
+	background: var(--color-accent)
+	border: none
+	border-radius: 100px
+	cursor: pointer
+	transition: background 0.2s linear, color 0.2s linear, border-color 0.2s linear
+	overflow: hidden
+	&:disabled
+		background: var(--color-dark-grey)
+		color: var(--color-white)
+
+	&:hover
+		background: var(--color-accent-light)
+	&--xl
+		height: 60px
+		font-size: 16px
+	&--block
+		--btn-px: 10px
+		display: flex
+		width: 100%
+		min-width: none

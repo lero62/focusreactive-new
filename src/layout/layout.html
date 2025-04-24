@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% import "partials/_mixins.html" as mixin %}
+
+<html lang="ru">
+
+<head>
+	<title>{{pageKey}}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+	<!-- <link rel="icon" type="image/png" href="img/favicon.png" /> -->
+	<link rel="stylesheet" type="text/css" href="css/style.min.css" />
+
+
+</head>
+
+<body class="">
+	<!-- BEGIN BODY -->
+	<div class="main-wrapper">
+		{% block content %}{% endblock %}
+	</div>
+
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

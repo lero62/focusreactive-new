@@ -1,0 +1,15 @@
+{% macro section(data) %}
+<section class="section sec-{{data.sectionName}} {{data.className if data.className}}" id="{{data.sectionName}}">
+  <div class="container">
+    <div class="section__head">
+      <h2 class="section__title">{{ data.title }}</h2>
+      {% if data.description %}
+      <div class="section_description">{{data.description}}</div>
+      {% endif %}
+    </div>
+    {% if caller %}
+    {{ caller() }}
+    {% endif %}
+  </div>
+</section>
+{% endmacro %}

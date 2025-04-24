@@ -1,0 +1,69 @@
+{% set pageKey = 'main' %}
+
+{% extends "layout/layout.html" %}
+
+{% block content %}
+
+
+<style>
+	.main-links .wrapper {
+		max-width: 1200px;
+		padding: 40px;
+		margin: 0 auto;
+	}
+
+	.main-links ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.main-links li {
+		margin-bottom: 10px;
+	}
+
+	.main-links a {
+		color: #333;
+		font-size: 16px;
+		line-height: 20px;
+		text-decoration: underline;
+	}
+
+	.main-links a:hover {
+		color: #333;
+		text-decoration: none;
+	}
+
+	.main-links h2 {
+		width: 100%;
+		font-size: 30px;
+		line-height: 60px;
+		color: #333;
+	}
+</style>
+
+<div class="main main-links">
+	<div class="wrapper">
+
+		<h2>Links</h2>
+		<div class="ul-wrap">
+			<ul>
+				<li><a href="index.html">Home </a></li>
+				<li><a href="cabinet.html">cabinet </a></li>
+				<li><a href="subscriptions.html">subscriptions </a></li>
+				<li><a href="albums.html">albums </a></li>
+				<li><a href="my_albums.html">my_albums </a></li>
+				<li><a href="edit_photo.html">edit_photo </a></li>
+				<li><a href="contests.html">contests </a></li>
+				<li><a href="contest_page.html">contest_page </a></li>
+				<li><a href="contest_2_page.html">contest_2_page </a></li>
+				<li><a href="fotobank.html">fotobank </a></li>
+			</ul>
+
+		</div>
+
+
+	</div>
+</div>
+
+{% endblock %}

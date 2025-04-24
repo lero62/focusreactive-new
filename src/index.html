@@ -1,0 +1,31 @@
+{% set pageKey = 'main' %}
+
+{% extends "layout/layout.html" %}
+
+{% block content %}
+
+<!-- BEGIN HEADER -->
+
+{% include "partials/_header.html" %}
+
+<!-- HEADER EOF   -->
+
+<!-- BEGIN MAIN -->
+<main class="main">
+  {% include "partials/_hero.html" %}
+  {% include "partials/_integration.html" %}
+  {% include "partials/_feature-work.html" %}
+  {% include "partials/_our-solutions.html" %}
+  {% include "partials/_services.html" %}
+  {% include "partials/_technologies.html" %}
+  {% include "partials/_what-you-get.html" %}
+  {% include "partials/_contacts.html" %}
+  {% include "partials/_testimonial.html" %}
+</main>
+<!-- MAIN EOF   -->
+
+<!-- BEGIN FOOTER -->
+{% include "partials/_footer.html" %}
+<!-- FOOTER EOF   -->
+
+{% endblock %}

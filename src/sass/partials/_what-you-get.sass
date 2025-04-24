@@ -1,0 +1,80 @@
+.what-you-get
+  position: relative
+  padding-top: 260px
+  +lg
+    padding-top: 220px
+
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 540px
+    background: linear-gradient(180deg, #000 1%, rgba(0, 0, 0, 0.00) 50.17%, #000 99%), url('../assets/img/technologies-bg.webp') no-repeat center center
+    background-size: cover
+    pointer-events: none
+    z-index: -1
+
+  &__list
+    display: flex
+    align-items: flex-start
+    flex-wrap: wrap
+    margin: 104px calc(var(--container-px) * -1) 0
+    +lg
+      margin-top: 60px
+    &-item
+      flex: 1
+      display: flex
+      flex-direction: column
+      padding: 40px
+      min-height: 480px
+      min-width: 1px
+      border: 1px solid var(--color-dark-grey)
+      position: relative
+      transition: background .3s ease-in-out
+      +mdl
+        min-height: 340px
+      +md
+        padding: 32px
+      &:nth-child(2), &:nth-child(3)
+
+        margin-left: -1px
+      &:nth-child(2)
+        margin-top: 70px
+        +md
+          margin-top: 56px
+      &:nth-child(3)
+        margin-top: 140px
+        +md
+          margin-top: 112px
+
+    &-title
+      font-size: 64px
+      font-weight: 600
+      line-height: .8
+      letter-spacing: -0.02em
+      margin-bottom: 20px
+      +mdl
+        font-size: 44px
+      +md
+        font-size: 32px
+        margin-bottom: 16px
+
+    &-text
+      font-size: 20px
+      max-width: 324px
+      line-height: 1.2
+      +mdl
+        font-size: 14px
+        max-width: 240px
+
+    &-icon
+      margin-top: auto
+      padding-top: 24px
+      img
+        margin-left: auto
+        +mdl
+          max-width: 110px
+        +md
+          max-width: 100px

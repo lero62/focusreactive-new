@@ -1,0 +1,121 @@
+.technologies
+  position: relative
+  padding-top: 260px
+  +lg
+    padding-top: 220px
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 540px
+    background: linear-gradient(180deg, #000 1%, rgba(0, 0, 0, 0.00) 50.17%, #000 99%), url("../assets/img/technologies-bg.webp") no-repeat center center
+    background-size: cover
+    pointer-events: none
+    z-index: -1
+
+.technologies-tabs
+  margin-top: 64px
+  +lg
+    margin-top: 46px
+  +md
+    margin-top: 34px
+  &__nav
+    display: flex
+    overflow: hidden
+    overflow-x: auto
+    margin: 0 calc(var(--container-px) * -1) 40px
+    padding: 0 var(--container-px) 8px
+    list-style-type: none
+    +md
+      margin-bottom: 24px
+  &__navitem
+    width: 25%
+    padding: 0 28px
+    border-left: 1px solid var(--color-dark-grey)
+    +mdl
+      padding: 0 16px
+    &:last-child
+      border-right: 1px solid var(--color-dark-grey)
+    &.is-active
+      .technologies-tabs__button
+        background: var(--color-dark)
+
+  &__button
+    display: flex
+    align-items: center
+    justify-content: center
+    text-align: center
+    width: 100%
+    height: 64px
+    border-radius: 100px
+    font-family: var(--base-font)
+    color: var(--color-white)
+    padding: 0 10px
+    font-size: 16px
+    font-weight: 500
+    transition: background .3s linear
+    @media (any-hover: hover)
+      &:hover
+        background: var(--color-dark)
+    +md
+      font-size: 14px
+      height: 48px
+  &__item
+    overflow: hidden
+    padding: 1px 0
+  &__wrap
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-end
+    gap: 1px
+    margin-left: -2px
+    margin-right: -2px
+    &-item
+      width: calc(25% - 1px)
+      height: 240px
+      display: flex
+      align-items: center
+      justify-content: center
+      outline: 1px solid var(--color-dark-grey) !important
+      position: relative
+      transition: background .3s linear
+      padding: 50px 20px
+      +mdl
+        height: 180px
+      +md
+        height: 120px
+        padding: 32px 8px
+      &:hover, &:focus-visible
+        background: var(--color-dark)
+        &:after
+          opacity: 1
+      &:after
+        content: ''
+        position: absolute
+        top: 20px
+        right: 20px
+        +arr(10px, 10px, var(--color-accent), tr)
+        opacity: 0
+        transition: opacity .3s linear
+        +md
+          top: 10px
+          right: 12px
+      img
+        max-width: 100%
+        max-height: 100%
+
+    &-label
+      position: absolute
+      top: 16px
+      left: 20px
+      text-transform: uppercase
+      font-size: 12px
+      font-weight: 600
+      color: var(--color-light-grey)
+      line-height: 1
+      +md
+        font-size: 8px
+        top: 10px
+        left: 12px

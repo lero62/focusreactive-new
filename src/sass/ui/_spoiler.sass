@@ -1,0 +1,16 @@
+.js-spoiler-item
+  --_spoiler-row-start: 0fr
+  --_spoiler-row-end: 1fr
+  display: grid
+  grid-template-rows: auto var(--_spoiler-row-start)
+  align-content: flex-start
+  align-items: flex-start
+  grid-auto-rows: min-content
+  overflow: hidden
+  transition: grid-template-rows .3s linear
+
+  &.is-active
+    grid-template-rows: auto var(--_spoiler-row-end)
+
+.js-spoiler-body
+  min-height: 0

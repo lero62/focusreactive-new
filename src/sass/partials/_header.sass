@@ -1,0 +1,55 @@
+.header
+	width: 100%
+	min-width: 320px
+	flex-shrink: 0
+	padding: 32px 0
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	z-index: 100
+	+sm
+		padding: 24px 0
+	&.is-sticky
+		backdrop-filter: blur(10px)
+		background: rgba(#000, 0.3)
+	&__container
+		display: flex
+		align-items: center
+		gap: 32px
+		justify-content: space-between
+
+	&__nav
+		min-width: 50%
+		display: flex
+		align-items: center
+		justify-content: space-between
+		gap: 32px
+		+mdl
+			justify-content: flex-end
+			min-width: auto
+			flex: 1 1 auto
+		+md
+			display: none
+
+		&-list
+			list-style-type: none
+			display: flex
+			gap: 24px
+			+mdl
+				margin: 0 auto
+		&-item
+			position: relative
+		&-link
+			display: flex
+			align-items: center
+			gap: 6px
+			font-size: 14px
+			font-weight: 500
+			color: var(--color-white)
+			&--dropdown
+				&:after
+					flex: none
+					content: ''
+					display: block
+					+arr(8px, 4px, var(--color-accent), b)

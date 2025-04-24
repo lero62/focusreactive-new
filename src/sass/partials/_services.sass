@@ -1,0 +1,109 @@
+
+.services-spoiler
+  &__item
+    position: relative
+    z-index: 1
+    overflow: hidden
+    margin: 0 calc(var(--container-px) * -1)
+    padding: 0 var(--container-px)
+    &:last-child:after
+      border-bottom: 1px solid var(--color-dark-grey)
+    &:before
+      content: ''
+      position: absolute
+      inset: 0 var(--container-px)
+      pointer-events: none
+      border-top: 1px solid var(--color-dark-grey)
+      z-index: 1
+      transition: inset .3s linear
+    &:after
+      content: ''
+      position: absolute
+      inset: 0 var(--container-px)
+      pointer-events: none
+      z-index: -1
+      transition: background .3s linear, inset .3s linear
+    &.is-active
+      &:before
+        inset: 0
+      &:after
+        background: var(--color-dark)
+        inset: 0
+      .services-spoiler__head
+        &:after
+          transform: translateY(-50%) scale(2)
+      .services-spoiler__body
+        transform: translateY(-14px)
+      & + .services-spoiler__item
+        &:before
+          inset: 0
+  &__head
+    padding: 50px 80px 50px 42%
+    font-family: var(--base-font)
+    display: block
+    width: 100%
+    position: relative
+    font-size: 40px
+    line-height: 1
+    font-weight: 500
+    text-align: left
+    +xl
+      padding-left: 34%
+    +mdl
+      padding-left: 64px
+    +md
+      padding-top: 36px
+      padding-bottom: 36px
+      font-size: 28px
+
+    &:after
+      content: ''
+      position: absolute
+      right: 0
+      top: 66px
+      transform: translateY(-50%)
+      +arr(24px, 24px, var(--color-accent), tr)
+      transition: transform .3s linear
+      transform-origin: top right
+      +md
+        border-right-width: 20px
+        border-bottom-width: 20px
+        top: 50px
+  &__number
+    color: var(--color-dark-grey)
+    flex: none
+    position: absolute
+    left: 0
+    top: 50%
+    white-space: nowrap
+    transform: translateY(-50%)
+    +mdl
+      font-size: 24px
+    +md
+      font-size: 20px
+  &__title
+    text-transform: capitalize
+    color: var(--color-white)
+
+  &__body
+    padding-left: 42%
+    padding-right: 80px
+
+    font-size: 16px
+    font-weight: 500
+    line-height: 1.2
+    transform: translateY(0)
+    overflow: hidden
+    transition: transform .3s linear
+    +xl
+      padding-left: 34%
+    +mdl
+      padding-left: 64px
+  &__text
+    padding-bottom: 50px
+    max-width: 582px
+    +xl
+      max-width: 380px
+      padding-bottom: 40px
+  &__logo
+    margin-top: 20px

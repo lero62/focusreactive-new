@@ -1,0 +1,42 @@
+
+$units: 1px !default
+
+=screen($res-min, $res-max)
+  @media screen and (min-width: if(unitless($res-min), $res-min*$units, $res-min)) and (max-width: if(unitless($res-max), $res-max*$units, $res-max))
+    @content
+
+=max($res)
+  @media screen and (max-width: if(unitless($res), $res*$units, $res))
+    @content
+
+=min($res)
+  @media screen and (min-width: if(unitless($res), $res*$units, $res))
+    @content
+
+=xl
+  @media screen and (max-width: $desktop)
+    @content
+
+=lg
+  @media screen and (max-width: $laptop)
+    @content
+
+=mdl
+  @media screen and (max-width: $laptop_sm)
+    @content
+
+=md
+  @media screen and (max-width: $ipad)
+    @content
+
+=sm
+  @media screen and (max-width: $iphone)
+    @content
+
+=xs
+  @media screen and (max-width: $iphone_sm)
+    @content
+
+=xxs
+  @media screen and (max-width: $iphone_xs)
+    @content

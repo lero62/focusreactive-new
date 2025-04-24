@@ -1,0 +1,92 @@
+.our-solutions
+  .section__title
+    max-width: 1200px
+    +xl
+      max-width: 900px
+    +mdl
+      max-width: 670px
+    +md
+      max-width: 590px
+
+  &__list
+    display: flex
+    align-items: flex-start
+    margin: 68px calc(var(--container-px) * -1) 0
+    +xl
+      margin-top: 40px
+    +mdl
+      margin-top: 0
+    &-item
+      flex: 1
+      min-width: 1px
+      padding: 40px
+      border: 1px solid var(--color-dark-grey)
+
+      position: relative
+      transition: background .3s ease-in-out
+      +md
+        padding: 32px
+      &:not(:first-child)
+        margin-left: -1px
+        margin-top: 120px
+        +xl
+          margin-top: 100px
+
+      &:after
+        content: ''
+        position: absolute
+        right: 40px
+        top: 40px
+        +arr(32px, 32px, var(--color-accent), tr)
+        transform-origin: top right
+        transition: transform .3s ease-in-out
+        +mdl
+          border-right-width: 20px
+          border-bottom-width: 20px
+        +md
+          top: 32px
+          right: 32px
+      &:hover
+        background: var(--color-dark)
+        &:after
+          transform: scale(1.9)
+
+    &-title
+      font-size: 104px
+      font-weight: 600
+      line-height: .8
+      letter-spacing: -0.02em
+      margin-bottom: 24px
+      margin-right: 40px
+      +xl
+        font-size: 80px
+        margin-bottom: 20px
+      +mdl
+        font-size: 56px
+        margin-bottom: 12px
+      +md
+        font-size: 48px
+
+    &-text
+      font-size: 32px
+      max-width: 468px
+      margin-right: 40px
+      +xl
+        font-size: 24px
+        max-width: 360px
+      +mdl
+        font-size: 16px
+        max-width: 260px
+    &-icon
+
+      margin-top: 80px
+      +xl
+        margin-top: 35px
+      img
+        margin-left: auto
+        +xl
+          max-width: 440px
+        +mdl
+          max-width: 280px
+        +md
+          margin-right: auto

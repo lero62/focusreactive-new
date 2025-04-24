@@ -1,0 +1,51 @@
+
+/* Helpers ============================================== */
+@import helpers/normalize
+@import helpers/variables
+@import helpers/mixins
+@import helpers/media
+@import helpers/utilities
+@import fonts
+
+html
+	font-size: 100%
+
+html
+	&.lock, &.lock body
+		overflow: hidden
+	&.navLock, &.navLock body
+		overflow: hidden
+
+body
+	color: var(--base-color)
+	font: 400 var(--base-text) var(--base-font)
+	line-height: 1.2
+	background: var(--base-bg)
+	min-height: 100%
+	display: flex
+	margin: 0px
+	padding: 0px
+	position: relative
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+
+/* UI
+/* ================================================ */
+@import ui/icons
+@import ui/buttons
+@import ui/forms
+@import ui/dropdown
+@import ui/spoiler
+@import ui/tabs
+@import ui/socials
+
+/* LAYOUT
+/* ================================================ */
+@import partials/header
+@import common
+@import partials/all
+@import partials/footer
+
+/* lib
+/* ================================================ */
+@import lib/swiper
