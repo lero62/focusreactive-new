@@ -23,14 +23,15 @@
 	margin: 0 auto
 	padding: 0 var(--container-px)
 	+sm
-		padding: 0 var(--container-sm-px)
+		--container-px: 24px
 
 .section
 	padding: var(--section-py) 0
 	+xl
 		--section-py: 72px
 	+sm
-		--section-py: 54px
+		--section-py: 40px
+		padding: calc(var(--section-py) * 2) 0 var(--section-py)
 	&--lg
 		--section-py: 120px
 
@@ -64,6 +65,9 @@
 				font-size: 88px
 			+md
 				font-size: 80px
+			+sm
+				font-size: 48px
 
 		&--sm
-			font-size: 96px
+			+min($desktop + 1px)
+				font-size: 96px

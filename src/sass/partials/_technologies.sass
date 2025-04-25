@@ -3,6 +3,8 @@
   padding-top: 260px
   +lg
     padding-top: 220px
+  +sm
+    padding-top: 110px
   &:before
     content: ''
     position: absolute
@@ -14,6 +16,12 @@
     background-size: cover
     pointer-events: none
     z-index: -1
+    +mdl
+      height: 480px
+    +md
+      height: 400px
+    +sm
+      height: 240px
 
 .technologies-tabs
   margin-top: 64px
@@ -21,6 +29,8 @@
     margin-top: 46px
   +md
     margin-top: 34px
+  +sm
+    margin-top: 0
   &__nav
     display: flex
     overflow: hidden
@@ -30,17 +40,26 @@
     list-style-type: none
     +md
       margin-bottom: 24px
+    +sm
+      gap: 4px
+      margin-bottom: 16px
   &__navitem
     width: 25%
     padding: 0 28px
     border-left: 1px solid var(--color-dark-grey)
     +mdl
       padding: 0 16px
+    +sm
+      width: auto
+      flex: none
+      border: none !important
+      padding: 0
     &:last-child
       border-right: 1px solid var(--color-dark-grey)
     &.is-active
       .technologies-tabs__button
         background: var(--color-dark)
+        border-color: var(--color-dark)
 
   &__button
     display: flex
@@ -59,9 +78,16 @@
     @media (any-hover: hover)
       &:hover
         background: var(--color-dark)
+        border-color: var(--color-dark)
     +md
       font-size: 14px
       height: 48px
+    +sm
+      border: 1px solid var(--color-dark-grey)
+      background: rgba(0, 0, 0, 0.01)
+      backdrop-filter: blur(4px)
+      height: 38px
+      padding: 0 20px
   &__item
     overflow: hidden
     padding: 1px 0
@@ -87,6 +113,8 @@
       +md
         height: 120px
         padding: 32px 8px
+      +sm
+        width: calc(50% - 1px)
       &:hover, &:focus-visible
         background: var(--color-dark)
         &:after

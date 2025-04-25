@@ -3,6 +3,8 @@
   padding-top: 260px
   +lg
     padding-top: 220px
+  +sm
+    padding-top: 110px
 
   &:before
     content: ''
@@ -15,6 +17,12 @@
     background-size: cover
     pointer-events: none
     z-index: -1
+    +mdl
+      height: 480px
+    +md
+      height: 400px
+    +sm
+      height: 240px
 
   &__list
     display: flex
@@ -23,6 +31,9 @@
     margin: 104px calc(var(--container-px) * -1) 0
     +lg
       margin-top: 60px
+    +sm
+      margin-top: 0
+      flex-direction: column
     &-item
       flex: 1
       display: flex
@@ -37,6 +48,17 @@
         min-height: 340px
       +md
         padding: 32px
+
+      +sm
+        border-left: none
+        border-right: none
+        min-height: 320px
+        width: 100%
+        margin: 0 !important
+        flex: auto
+      +xs
+        padding: 24px
+
       &:nth-child(2), &:nth-child(3)
 
         margin-left: -1px
@@ -60,6 +82,8 @@
       +md
         font-size: 32px
         margin-bottom: 16px
+      +sm
+        font-size: 40px
 
     &-text
       font-size: 20px
@@ -76,5 +100,3 @@
         margin-left: auto
         +mdl
           max-width: 110px
-        +md
-          max-width: 100px

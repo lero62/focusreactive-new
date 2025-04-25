@@ -29,11 +29,16 @@
       &:after
         background: var(--color-dark)
         inset: 0
+
       .services-spoiler__head
         &:after
           transform: translateY(-50%) scale(2)
+      .services-spoiler__number
+        color: var(--color-white)
       .services-spoiler__body
         transform: translateY(-14px)
+        +sm
+          transform: translateY(0)
       & + .services-spoiler__item
         &:before
           inset: 0
@@ -55,6 +60,10 @@
       padding-top: 36px
       padding-bottom: 36px
       font-size: 28px
+    +xs
+      padding: 20px 48px
+      line-height: 1.1
+      font-size: 24px
 
     &:after
       content: ''
@@ -69,18 +78,29 @@
         border-right-width: 20px
         border-bottom-width: 20px
         top: 50px
+      +sm
+        top: 28px
+      +xs
+        border-right-width: 12px
+        border-bottom-width: 12px
   &__number
     color: var(--color-dark-grey)
     flex: none
     position: absolute
     left: 0
-    top: 50%
+    top: 46px
     white-space: nowrap
-    transform: translateY(-50%)
+    transition: color .3s linear
+
     +mdl
       font-size: 24px
+      top: 56px
     +md
       font-size: 20px
+      top: 40px
+    +xs
+      top: 24px
+      font-size: 16px
   &__title
     text-transform: capitalize
     color: var(--color-white)
@@ -88,7 +108,6 @@
   &__body
     padding-left: 42%
     padding-right: 80px
-
     font-size: 16px
     font-weight: 500
     line-height: 1.2
@@ -99,11 +118,16 @@
       padding-left: 34%
     +mdl
       padding-left: 64px
+    +xs
+      padding-left: 48px
+      font-size: 14px
   &__text
     padding-bottom: 50px
     max-width: 582px
     +xl
       max-width: 380px
       padding-bottom: 40px
+    +xs
+      padding-bottom: 24px
   &__logo
     margin-top: 20px

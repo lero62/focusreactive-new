@@ -3,7 +3,9 @@ import { Pagination } from 'swiper/modules';
 
 export function initTestimonialSwiper() {
   const swiperEl = document.querySelector('.testimonial-swiper');
-  const customPagination = document.querySelector('.testimonial-swiper__numbers');
+  const customPagination = document.querySelector(
+    '.testimonial-swiper__numbers'
+  );
 
   if (swiperEl) {
     new Swiper(swiperEl, {
@@ -14,6 +16,7 @@ export function initTestimonialSwiper() {
       watchOverflow: true,
       watchSlidesVisibility: true,
       watchSlidesProgress: true,
+      autoHeight: true,
       pagination: {
         el: '.testimonial-swiper__pagination',
         clickable: true,
@@ -47,7 +50,9 @@ export function initTestimonialSwiper() {
     function updateCustomPagination(swiper) {
       if (!customPagination) return;
 
-      const buttons = customPagination.querySelectorAll('.testimonial-swiper__number');
+      const buttons = customPagination.querySelectorAll(
+        '.testimonial-swiper__number'
+      );
       buttons.forEach((btn, index) => {
         btn.classList.toggle('is-active', index === swiper.realIndex);
       });

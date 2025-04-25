@@ -9,6 +9,8 @@
       gap: 50px
     +md
       gap: 40px
+    +sm
+      gap: 16px
     &-left
       display: flex
       flex-direction: column
@@ -16,6 +18,8 @@
       width: 510px
       +mdl
         width: auto
+      +sm
+        gap: 24px
     &-right
       max-width: 1065px
       flex: 1
@@ -31,6 +35,9 @@
     +mdl
       margin-top: 36px
       text-align: center
+    +sm
+      text-align: left
+      margin-top: 24px
     a
       color: var(--color-white)
       text-decoration: none
@@ -42,8 +49,13 @@
     display: grid
     gap: 36px 20px
     grid-template-columns: 1fr 1fr
+    +sm
+      grid-template-columns: 1fr
+      gap: 24px
   &__item
     grid-column: span 2
+    +sm
+      grid-column: span 1
     &--span-1
       grid-column: span 1
 
@@ -63,6 +75,9 @@
     line-height: 1.4
     +md
       font-size: 20px
+
+    +xs
+      font-size: 16px
     &:before
       content: '→'
       margin-right: 5px

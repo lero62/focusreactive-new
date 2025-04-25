@@ -16,6 +16,8 @@
 		border: none
 		border-bottom: 1px solid var(--color-grey)
 		transition: border-color .2s linear
+		+sm
+			height: 40px
 		&:focus-visible
 			outline: none
 		&:focus, &:focus-visible
@@ -101,6 +103,10 @@ textarea.form-input
 	border: 1px solid var(--color-light-grey)
 	transition: background .2s linear, color .2s linear, border-color .2s linear
 	overflow: hidden
+	+sm
+		height: 32px
+		font-size: 12px
+		padding: 0 16px
 	input
 		position: absolute
 		font-size: 0
@@ -134,6 +140,8 @@ textarea.form-input
 		background: transparent
 		position: relative
 		transition: border-color .2s linear
+		+sm
+			height: 40px
 		&:focus-visible
 			outline: none
 		&:focus, &:focus-visible
