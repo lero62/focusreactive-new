@@ -28,12 +28,14 @@
     display: flex
     align-items: flex-start
     flex-wrap: wrap
-    margin: 104px calc(var(--container-px) * -1) 0
+    margin: 104px calc((var(--container-px) * -1) - 2px) 0
     +lg
       margin-top: 60px
     +sm
       margin-top: 0
       flex-direction: column
+      margin-left: calc(var(--container-px) * -1)
+      margin-right: calc(var(--container-px) * -1)
     &-item
       flex: 1
       display: flex
@@ -58,9 +60,10 @@
         flex: auto
       +xs
         padding: 24px
-
+      &:not(:first-child)
+        +sm
+          border-top: none
       &:nth-child(2), &:nth-child(3)
-
         margin-left: -1px
       &:nth-child(2)
         margin-top: 70px

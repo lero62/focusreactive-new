@@ -13,6 +13,10 @@ $units: 1px !default
   @media screen and (min-width: if(unitless($res), $res*$units, $res))
     @content
 
+=xxl
+  @media screen and (max-width: $desktop_lg)
+    @content
+
 =xl
   @media screen and (max-width: $desktop)
     @content
