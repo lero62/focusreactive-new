@@ -16,10 +16,7 @@ export const path = {
   },
   src: {
     js: [`${srcFolder}/js/libs/*.js`, `!${srcFolder}/js/main.js`],
-
-    // Если нуже jquery и нужно объединённые файлы
-    // js: [`${srcFolder}/js/jquery-3.6.1.min.js`, `${srcFolder}/js/libs/*.js`, `!${srcFolder}/js/main.js`],
-    images: `${srcFolder}/assets/img/**/*.{jpg,jpeg,png,gif,webp,cur}`,
+    images: `${srcFolder}/assets/img/**/*.{jpg,jpeg,png,gif,webp,cur,ico}`,
     video: `${srcFolder}/assets/video/**/*`,
     svg: `${srcFolder}/assets/img/**/*.svg`,
     sass: `${srcFolder}/sass/style.sass`,
@@ -34,7 +31,7 @@ export const path = {
     css: `${srcFolder}/css/*.css`,
     csslibs: `${srcFolder}/css/libs/*.css`,
     html: `${srcFolder}/**/*.html`,
-    images: `${srcFolder}/assets/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp,cur}`,
+    images: `${srcFolder}/assets/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp,cur,ico}`,
     video: `${srcFolder}/assets/video/**/*`,
     svg: `${srcFolder}/assets/img/sprite/**/*.svg`,
   },
