@@ -1,39 +1,29 @@
-name: Gulp Build
+name: NodeJS with Gulp
 
 on:
   push:
-    branches: ['main']
-  pull_request:
     branches: ['main']
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x]
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
 
       - name: Install dependencies
         run: npm install
 
-      - name: Install Gulp CLI globally (if needed)
-        run: npm install --global gulp-cli
-
-      - name: Run Gulp build
+      - name: Build project
         run: gulp build
 
-      - name: Upload dist folder as artifact
-        uses: actions/upload-artifact@v4
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          name: dist
-          path: dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
