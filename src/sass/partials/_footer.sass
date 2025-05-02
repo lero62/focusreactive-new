@@ -2,3 +2,67 @@
 	width: 100%
 	min-width: 320px
 	flex-shrink: 0
+	background: url('../assets/img/footer-bg.webp') no-repeat center center
+	background-size: cover
+	background-size: 100% 100%
+	&__logo 
+		margin-top: 65px
+	&__top 
+		padding-top: 177px
+		padding-bottom: 110px
+		&-row 
+			display: flex
+			justify-content: space-between
+			margin: 0 -12px
+		&-item 
+			width: 25%
+			padding: 0 12px
+			&:first-child
+				width: 50%
+	&__title 
+		color: var(--color-light-grey)
+		margin-bottom: 35px
+		font-weight: 500
+	&__list 
+		list-style: none
+		padding: 0
+		margin: 0
+		&-item 
+			margin-bottom: 17px
+			&:last-child
+				margin-bottom: 0
+		&-link 
+			font-size: 32px
+			+text-link
+			&::before 
+				background: var(--color-white)
+				bottom: -2px
+	&__medium 
+		padding-bottom: 64px
+		&-row 
+			display: flex
+			align-items: center
+			margin: 0 -12px
+		&-item 
+			width: 50%
+			padding: 0 12px
+	&__description
+			max-width: 358px
+	&__bottom 
+		padding: 24px 0
+		border-top: 1px solid #2c2c2c
+		&-row 
+			display: flex
+			align-items: center
+			gap: 24px
+	&__locations 
+		font-size: 16px
+		color: var(--color-light-grey)
+	&__reviews 
+		margin-left: auto
+
+
+.copyright 
+	font-size: 16px
+	color: var(--color-light-grey)
+

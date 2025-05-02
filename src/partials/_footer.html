@@ -1,5 +1,92 @@
-{% macro footer(data) %}
-<footer class="footer">
-  {{data.title}}
+<footer class="footer" role="contentinfo" aria-label="Site footer">
+	<div class="container">
+		<div class="footer__top">
+			<div class="footer__top-row">
+				<div class="footer__top-item">
+					<div class="footer__logo">
+						<img src="assets/img/fr-logo-footer.svg" alt="Focus Reactive logo" width="716" height="244">
+					</div>
+				</div>
+				<div class="footer__top-item">
+					<h2 class="footer__title">Company</h2>
+					<nav aria-label="Company navigation">
+						<ul class="footer__list">
+							<li class="footer__list-item">
+								<a href="#" class="footer__list-link">About</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__list-link">Portfolio</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__list-link">Blog</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__list-link">Careers</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__list-link">Contact Us</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="footer__top-item">
+					<h2 class="footer__title">Services</h2>
+					<nav aria-label="Services navigation">
+						<ul class="footer__list">
+							<li class="footer__list-item">
+								<a href="#" class="footer__list-link">Headless CMS</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__list-link">Headless Commerce</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__list-link">Next.JS</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__list-link">AI & Integrations</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__list-link">Design (Habitat)</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<div class="footer__medium">
+			<div class="footer__medium-row">
+				<div class="footer__medium-item">
+					<p class="footer__description">We build Composable Content Systems. Fast and Scalable.</p>
+				</div>
+				<div class="footer__medium-item">
+					<nav aria-label="Social media links">
+						<ul class="social-list social-list--48">
+							<li class="social-list__item">
+								<a href="#" class="social-list__link" aria-label="Twitter / X">X</a>
+							</li>
+							<li class="social-list__item">
+								<a href="#" class="social-list__link" aria-label="LinkedIn">LI</a>
+							</li>
+							<li class="social-list__item">
+								<a href="#" class="social-list__link" aria-label="Facebook">FB</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer__bottom">
+		<div class="container">
+			<div class="footer__bottom-row">
+				<div class="copyright">© 2025 FocusReactive</div>
+				<div class="footer__locations">London, Amsterdam, Warsaw, Remote.</div>
+				<div class="footer__reviews">
+					<a href="#" aria-label="Read our customer reviews">
+						<img src="assets/img/footer-reviews.png" alt="Customer reviews" width="117" height="40">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </footer>
-{% endmacro %}

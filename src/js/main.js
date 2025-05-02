@@ -5,6 +5,8 @@ import { initSpoilers } from './blocks/spoiler.js';
 import { initTabs } from './blocks/tabs.js';
 import { selectboxes, setupSelectboxes } from './blocks/selectbox.js';
 import { initTestimonialSwiper } from './blocks/sliders.js';
+import { draggableCMS } from './blocks/draggable.js';
+import { initIntegrationAnimation } from './blocks/scrollAnim.js';
 
 document.addEventListener('DOMContentLoaded', function (event) {
   initDropdowns();
@@ -15,4 +17,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
   selectboxes();
   setupSelectboxes();
   initTestimonialSwiper();
+  draggableCMS();
+  initIntegrationAnimation();
 });

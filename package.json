@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "dotenv": "^16.5.0",
+    "gsap": "^3.13.0",
     "gulp-changed": "^5.0.2",
     "gulp-nunjucks-render": "^2.2.3",
     "gulp-sourcemaps": "^3.0.0",

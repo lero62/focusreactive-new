@@ -1,524 +1,610 @@
 
 .cms-preview
-  display: flex
-  gap: 20px
-  padding: 24px
+	display: flex
+	gap: 20px
+	padding: 24px
+	max-width: 1530px
+	margin: 0 auto
+	border-radius: 40px
+	border: 1px solid var(--color-dark-grey)
+	background: rgba(0, 0, 0, 0.40)
+	position: relative
+	aspect-ratio: 16/8.4
+	z-index: 2
+	background: #000000
+	+mdl
+		padding: 16px
+		gap: 14px
+		border-radius: 28px
+	&.is-open
+		.cms-preview__sidebar
+			display: none
+	&__content
+		background: var(--color-black)
+		border: 1px solid var(--color-dark-grey)
+		padding: 10px 10px 0
+		flex: 1
+		border-radius: 16px
+		+mdl
+			border-radius: 12px
+	&__scrollbar
+		padding: 22px 30px
+		max-height: 100%
+		overflow-y: auto
+		+mdl
+			padding: 16px 6px
+		&::-webkit-scrollbar
+			width: 3px
 
-  max-width: 1530px
-  margin: 0 auto
-  border-radius: 40px
-  border: 1px solid var(--color-dark-grey)
-  background: rgba(0, 0, 0, 0.40)
-  position: relative
-  aspect-ratio: 16/8.4
-  +mdl
-    padding: 16px
-    gap: 14px
-    border-radius: 28px
-  &.is-open
-    .cms-preview__sidebar
-      display: none
-  &__content
-    background: var(--color-black)
-    border: 1px solid var(--color-dark-grey)
-    padding: 10px 10px 0
-    flex: 1
-    border-radius: 16px
-    +mdl
-      border-radius: 12px
-  &__scrollbar
-    padding: 22px 30px
-    max-height: 100%
-    overflow-y: auto
-    +mdl
-      padding: 16px 6px
-    &::-webkit-scrollbar
-      width: 3px
+		&::-webkit-scrollbar-track
+			background: transparent
 
-    &::-webkit-scrollbar-track
-      background: transparent
+		&::-webkit-scrollbar-thumb
+			background: var(--color-dark-grey)
+			border-radius: 100px
 
-    &::-webkit-scrollbar-thumb
-      background: var(--color-dark-grey)
-      border-radius: 100px
+		&::-webkit-scrollbar-button
+			display: none
 
-    &::-webkit-scrollbar-button
-      display: none
+	&__sidebar
+		width: 320px
+		flex: none
+		border-radius: 16px
+		border: 1px solid var(--color-dark-grey)
+		background: var(--color-dark)
 
-  &__sidebar
-    width: 320px
-    flex: none
-    border-radius: 16px
-    border: 1px solid var(--color-dark-grey)
-    background: var(--color-dark)
+		+mdl
+			width: 228px
+			border-radius: 12px
 
-    +mdl
-      width: 228px
-      border-radius: 12px
-
-  &__toggle
-    position: absolute
-    top: 36px
-    right: 46px
-    z-index: 10
-    +mdl
-      top: 24px
-      right: 30px
-    &.is-acitve
-      .icon
-        color: var(--color-white)
+	&__toggle
+		position: absolute
+		top: 36px
+		right: 46px
+		z-index: 10
+		+mdl
+			top: 24px
+			right: 30px
+		&.is-acitve
+			.icon
+				color: var(--color-white)
 
 [data-label]
-  border-radius: 0px 4px 4px 4px
-  border: 1px dashed #5F00E5
-  position: relative
-  max-width: max-content
-  margin-left: auto
-  margin-right: auto
+	border-radius: 0px 4px 4px 4px
+	border: 1px dashed #5F00E5
+	position: relative
+	max-width: max-content
+	margin-left: auto
+	margin-right: auto
 
-  &:before
-    content: attr(data-label)
-    position: absolute
-    bottom: calc(100% + 1px)
-    left: -1px
-    padding: 4px 6px
-    border-radius: 2px 2px 0px 0px
-    background: #5F00E5
-    font-size: 12px
-    line-height: 1
-    font-weight: 500
-    text-transform: capitalize
-    +mdl
-      padding: 2px 4px
-      font-size: 9px
+	&:before
+		content: attr(data-label)
+		position: absolute
+		bottom: calc(100% + 1px)
+		left: -1px
+		padding: 4px 6px
+		border-radius: 2px 2px 0px 0px
+		background: #5F00E5
+		font-size: 12px
+		line-height: 1
+		font-weight: 500
+		text-transform: capitalize
+		+mdl
+			padding: 2px 4px
+			font-size: 9px
 
-  &[data-label-blue]
-    border-color: #007AE5
-    &:before
-      background: #007AE5
+	&[data-label-blue]
+		border-color: #007AE5
+		&:before
+			background: #007AE5
 
 .preview-page
-  display: flex
-  flex-direction: column
-  gap: 40px
-  +mdl
-    gap: 32px
-  &__section
-    padding: 40px
-    max-width: 892px
-    width: 100%
-    margin: 0 auto
-    +lg
-      padding: 32px 28px
+	display: flex
+	flex-direction: column
+	gap: 40px
+	+mdl
+		gap: 32px
+	&__section
+		padding: 40px
+		max-width: 892px
+		width: 100%
+		margin: 0 auto
+		+lg
+			padding: 32px 28px
 
-  &__title
-    font-size: 48px
-    line-height: 1
-    font-weight: 600
-    text-align: center
-    color: var(--color-white)
-    +lg
-      font-size: 40px
-    +mdl
-      font-size: 34px
+	&__title
+		font-size: 48px
+		line-height: 1
+		font-weight: 600
+		text-align: center
+		color: var(--color-white)
+		+lg
+			font-size: 40px
+		+mdl
+			font-size: 34px
 
-    &.h1
-      font-size: 64px
-      +lg
-        font-size: 56px
-      +mdl
-        font-size: 45px
-  &__btns
-    display: flex
-    gap: 24px
-    align-items: center
-    justify-content: center
-    margin-top: 40px
-    +mdl
-      margin-top: 20px
-      gap: 16px
-  &__btn
-    height: 44px
-    display: inline-flex
-    align-items: center
-    justify-content: center
-    padding: 0 24px
-    color: var(--color-white)
-    font: 600 16px/1 var(--base-font)
-    text-align: center
-    text-decoration: none
-    background: transparent
-    border: 1px solid var(--color-accent)
-    border-radius: 100px
-    cursor: pointer
-    transition: all 0.2s linear
-    +mdl
-      height: 30px
-      padding: 0 18px
-      font-size: 11px
-    &:hover, &:focus-visible
-      background: var(--color-accent)
-      color: var(--color-black)
-    &--link
-      border: none
-      padding: 0
-      text-decoration: underline
-      text-decoration-thickness: 5%
-      text-underline-offset: 25%
-      text-underline-position: from-font
-      &:hover, &:focus-visible
-        text-decoration: none
-        background: transparent
-        color: var(--color-white)
+		&.h1
+			font-size: 64px
+			+lg
+				font-size: 56px
+			+mdl
+				font-size: 45px
+	&__btns
+		display: flex
+		gap: 24px
+		align-items: center
+		justify-content: center
+		margin-top: 40px
+		+mdl
+			margin-top: 20px
+			gap: 16px
+	&__btn
+		height: 44px
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		padding: 0 24px
+		color: var(--color-white)
+		font: 600 16px/1 var(--base-font)
+		text-align: center
+		text-decoration: none
+		background: transparent
+		border: 1px solid var(--color-accent)
+		border-radius: 100px
+		cursor: pointer
+		transition: all 0.2s linear
+		+mdl
+			height: 30px
+			padding: 0 18px
+			font-size: 11px
+		&:hover, &:focus-visible
+			background: var(--color-accent)
+			color: var(--color-black)
+		&--link
+			border: none
+			padding: 0
+			text-decoration: underline
+			text-decoration-thickness: 5%
+			text-underline-offset: 25%
+			text-underline-position: from-font
+			&:hover, &:focus-visible
+				text-decoration: none
+				background: transparent
+				color: var(--color-white)
 
-  &__card
-    display: flex
-    border-radius: 16px
-    border: 1px solid var(--color-dark-grey)
-    overflow: hidden
-    +mdl
-      border-radius: 12px
-    &-img
-      width: 50%
-      flex: none
-      overflow: hidden
-      display: block
-      img
-        width: 100%
-        height: 100%
-        object-fit: cover
-    &-content
-      width: 50%
-      display: flex
-      flex-direction: column
-      gap: 24px
-      padding: 40px
-      +mdl
-        padding: 28px
-        gap: 16px
-    &-cat
-      font-size: 16px
-      font-weight: 500
-      color: var(--color-accent)
-      line-height: 1
-      +lg
-        font-size: 14px
-      +mdl
-        font-size: 12px
-    &-title
-      font-size: 32px
-      font-weight: 500
-      line-height: 1
-      +lg
-        font-size: 28px
-      +mdl
-        font-size: 22px
-        line-height: 1.1
-    &-text
-      font-size: 14px
-      font-weight: 500
-      line-height: 1.2
-      +lg
-        font-size: 12px
-      +mdl
-        font-size: 10px
-    &-btns
-      flex: none
-      margin-top: auto
-    &-btn
-      display: inline-flex
-      align-items: flex-start
-      gap: 8px
-      font-size: 16px
-      font-weight: 500
-      line-height: 1
-      text-decoration: underline
-      text-decoration-skip-ink: none
-      text-decoration-thickness: 5%
-      text-underline-offset: 25%
-      text-underline-position: from-font
-      +lg
-        font-size: 14px
-      +mdl
-        font-size: 12px
-      .icon
-        fill: none
-        stroke: var(--color-white)
-        stroke-width: 1px
-        font-size: 10px
-        +lg
-          font-size: 9px
-          top: 2px
-        +mdl
-          font-size: 7px
+	&__card
+		display: flex
+		border-radius: 16px
+		border: 1px solid var(--color-dark-grey)
+		overflow: hidden
+		+mdl
+			border-radius: 12px
+		&-img
+			width: 50%
+			flex: none
+			overflow: hidden
+			display: block
+			img
+				width: 100%
+				height: 100%
+				object-fit: cover
+		&-content
+			width: 50%
+			display: flex
+			flex-direction: column
+			gap: 24px
+			padding: 40px
+			+mdl
+				padding: 28px
+				gap: 16px
+		&-cat
+			font-size: 16px
+			font-weight: 500
+			color: var(--color-accent)
+			line-height: 1
+			+lg
+				font-size: 14px
+			+mdl
+				font-size: 12px
+		&-title
+			font-size: 32px
+			font-weight: 500
+			line-height: 1
+			+lg
+				font-size: 28px
+			+mdl
+				font-size: 22px
+				line-height: 1.1
+		&-text
+			font-size: 14px
+			font-weight: 500
+			line-height: 1.2
+			+lg
+				font-size: 12px
+			+mdl
+				font-size: 10px
+		&-btns
+			flex: none
+			margin-top: auto
+		&-btn
+			display: inline-flex
+			align-items: flex-start
+			gap: 8px
+			font-size: 16px
+			font-weight: 500
+			line-height: 1
+			text-decoration: underline
+			text-decoration-skip-ink: none
+			text-decoration-thickness: 5%
+			text-underline-offset: 25%
+			text-underline-position: from-font
+			+lg
+				font-size: 14px
+			+mdl
+				font-size: 12px
+			.icon
+				fill: none
+				stroke: var(--color-white)
+				stroke-width: 1px
+				font-size: 10px
+				+lg
+					font-size: 9px
+					top: 2px
+				+mdl
+					font-size: 7px
 
-  &__articles
-    margin-top: 56px
-    display: grid
-    grid-template-columns: repeat(3, 1fr)
-    gap: 24px
-    +lg
-      margin-top: 36px
-      gap: 20px
-  &__article
-    border-radius: 16px
-    border: 1px solid var(--color-dark-grey)
-    padding: 28px
-    +lg
-      border-radius: 12px
-      padding: 20px
-    &-img
-      margin-bottom: 28px
-      display: block
-      +mdl
-        margin-bottom: 20px
-      img
-        width: 100%
-    &-cat
-      font-size: 16px
-      font-weight: 500
-      line-height: 1
-      color: var(--color-accent)
-      margin-bottom: 16px
-      +lg
-        font-size: 14px
-      +mdl
-        font-size: 12px
-    &-title
-      font-size: 22px
-      font-weight: 500
-      line-height: 1.2
-      +lg
-        font-size: 18px
-      +mdl
-        font-size: 16px
-  &__partners
-    display: flex
-    gap: 44px
-    justify-content: space-between
-    align-items: center
-    margin-top: 56px
-    +lg
-      margin-top: 36px
+	&__articles
+		margin-top: 56px
+		display: grid
+		grid-template-columns: repeat(3, 1fr)
+		gap: 24px
+		+lg
+			margin-top: 36px
+			gap: 20px
+	&__article
+		border-radius: 16px
+		border: 1px solid var(--color-dark-grey)
+		padding: 28px
+		+lg
+			border-radius: 12px
+			padding: 20px
+		&-img
+			margin-bottom: 28px
+			display: block
+			+mdl
+				margin-bottom: 20px
+			img
+				width: 100%
+		&-cat
+			font-size: 16px
+			font-weight: 500
+			line-height: 1
+			color: var(--color-accent)
+			margin-bottom: 16px
+			+lg
+				font-size: 14px
+			+mdl
+				font-size: 12px
+		&-title
+			font-size: 22px
+			font-weight: 500
+			line-height: 1.2
+			+lg
+				font-size: 18px
+			+mdl
+				font-size: 16px
+	&__partners
+		display: flex
+		gap: 44px
+		justify-content: space-between
+		align-items: center
+		margin-top: 56px
+		+lg
+			margin-top: 36px
 
 .cms-panel
-  display: flex
-  flex-direction: column
-  gap: 24px
-  +mdl
-    gap: 14px
-  &__header
-    display: flex
-    align-items: center
-    justify-content: space-between
-    gap: 24px
-    padding: 16px 22px
-    border-bottom: 1px solid var(--color-dark-grey)
-    +mdl
-      padding: 10px 16px
+	display: flex
+	flex-direction: column
+	gap: 24px
+	+mdl
+		gap: 14px
+	&__header
+		display: flex
+		align-items: center
+		justify-content: space-between
+		gap: 24px
+		padding: 16px 22px
+		border-bottom: 1px solid var(--color-dark-grey)
+		+mdl
+			padding: 10px 16px
 
-  &__title
-    font-size: 16px
-    font-weight: 500
-    line-height: 1
-    color: var(--color-light-grey)
-    +mdl
-      font-size: 12px
+	&__title
+		font-size: 16px
+		font-weight: 500
+		line-height: 1
+		color: var(--color-light-grey)
+		+mdl
+			font-size: 12px
 
-  &__btn-icon
-    width: 24px
-    height: 24px
-    flex: none
-    display: inline-flex
-    align-items: center
-    justify-content: center
-    background: transparent
-    transition: background 0.2s linear
-    border: none
-    padding: 0
-    border-radius: 4px
-    +mdl
-      width: 16px
-      height: 16px
-    .icon
-      transition: color 0.2s linear
-      color: var(--color-light-grey)
-      +mdl
-        font-size: 16px
-    &:hover, &:focus-visible
-      .icon
-        color: var(--color-white)
+	&__btn-icon
+		width: 24px
+		height: 24px
+		flex: none
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		background: transparent
+		transition: background 0.2s linear
+		border: none
+		padding: 0
+		border-radius: 4px
+		user-select: none
+		+mdl
+			width: 16px
+			height: 16px
+		.icon
+			transition: color 0.2s linear
+			color: var(--color-light-grey)
+			+mdl
+				font-size: 16px
+		&:hover, &:focus-visible
+			.icon
+				color: var(--color-white)
 
-  &__main
-    padding: 0 20px
-    overflow-y: auto
-    flex: 1 1 auto
-    display: flex
-    flex-direction: column
-    gap: 8px
-    min-height: 100px
-    +mdl
-      padding: 0 14px
-      gap: 4px
-    &::-webkit-scrollbar
-      width: 3px
+	&__main
+		padding: 0 20px
+		overflow-y: auto
+		flex: 1 1 auto
+		display: flex
+		flex-direction: column
+		gap: 8px
+		min-height: 100px
+		position: relative
+		z-index: 1
+		+mdl
+			padding: 0 14px
+			gap: 4px
+		&::-webkit-scrollbar
+			width: 3px
 
-    &::-webkit-scrollbar-track
-      background: transparent
+		&::-webkit-scrollbar-track
+			background: transparent
 
-    &::-webkit-scrollbar-thumb
-      background: var(--color-dark-grey)
-      border-radius: 100px
+		&::-webkit-scrollbar-thumb
+			background: var(--color-dark-grey)
+			border-radius: 100px
 
-    &::-webkit-scrollbar-button
-      display: none
+		&::-webkit-scrollbar-button
+			display: none
 
-  &__block
-    display: flex
-    align-items: center
-    gap: 8px
-    width: 100%
-    +mdl
-      gap: 6px
-    &-item
-      position: relative
-      flex: 1 1 auto
-      min-width: 1px
-    &-name
-      padding: 11px 16px
-      border-radius: 8px
-      display: flex
-      width: 100%
-      align-items: center
-      gap: 8px
-      font-size: 20px
-      font-weight: 400
-      font-family: var(--base-font)
-      background: none
-      text-align: left
-      color: var(--color-white)
-      line-height: 1
-      +text-overflow
-      border: 1px solid var(--color-dark-grey)
-      +mdl
-        padding: 7px 12px
-        font-size: 14px
-        gap: 4px
-      .icon
-        color: var(--color-light-grey)
-        +mdl
-          font-size: 16px
-      span
-        flex: 1
-        min-width: 1px
-      &.is-active
-        border-bottom-color: transparent
-        border-radius: 8px 8px 0 0
-        .icon-arrow-down
-          transform: rotate(180deg)
-          color: var(--color-white)
-    &-dropdown
-      position: absolute
-      top: calc(100% - 1px)
-      left: 0
-      z-index: 5
-      width: 100%
-      border: 1px solid var(--color-dark-grey)
-      border-top: none
-      list-style-type: none
-      padding: 5px 32px 5px 12px
-      border-radius: 0 0 8px 8px
-      +mdl
-        padding: 5px 20px 5px 12px
-      li
-        display: flex
-        align-items: center
-        gap: 8px
-        padding: 4px 0
-        font-size: 16px
-        font-weight: 400
-        +mdl
-          font-size: 12px
-  &__footer
-    padding: 0 8px 8px
-    position: relative
-    +mdl
-      padding: 0 6px 6px
-  &__btn
-    display: flex
-    width: 100%
-    gap: 8px
-    align-items: center
-    justify-content: center
-    height: 64px
-    line-height: 1
-    font-family: var(--base-font)
-    font-size: 20px
-    font-weight: 500
-    text-align: center
-    text-decoration: none
-    color: var(--color-white)
-    background: var(--color-dark-grey)
-    border: none
-    border-radius: 8px
-    cursor: pointer
-    transition: background 0.2s linear, color 0.2s linear
-    +mdl
-      height: 48px
-      gap: 6px
-      font-size: 14px
-    .icon
+	&__block
+		display: flex
+		align-items: center
+		gap: 8px
+		width: 100%
+		position: absolute
+		left: 0
+		width: 100%
+		background: #0E0E0E
+		&.is-active 
+			z-index: 10
+		+mdl
+			gap: 6px
+		&-item
+			position: relative
+			flex: 1 1 auto
+			min-width: 1px
+		&-name
+			padding: 11px 16px
+			border-radius: 8px
+			display: flex
+			width: 100%
+			align-items: center
+			gap: 8px
+			font-size: 20px
+			font-weight: 400
+			font-family: var(--base-font)
+			background: none
+			text-align: left
+			color: var(--color-white)
+			line-height: 1
+			+text-overflow
+			border: 1px solid var(--color-dark-grey)
+			+mdl
+				padding: 7px 12px
+				font-size: 14px
+				gap: 4px
+			.icon
+				color: var(--color-light-grey)
+				+mdl
+					font-size: 16px
+			span
+				flex: 1
+				min-width: 1px
+			&.is-active
+				border-bottom-color: transparent
+				border-radius: 8px 8px 0 0
+				.icon-arrow-down
+					transform: rotate(180deg)
+					color: var(--color-white)
+		&-dropdown
+			position: absolute
+			top: calc(100% - 1px)
+			left: 0
+			z-index: 5
+			width: 100%
+			border: 1px solid var(--color-dark-grey)
+			border-top: none
+			list-style-type: none
+			padding: 5px 32px 5px 12px
+			border-radius: 0 0 8px 8px
+			background: #0E0E0E
+			+mdl
+				padding: 5px 20px 5px 12px
+			li
+				display: flex
+				align-items: center
+				gap: 8px
+				padding: 4px 0
+				font-size: 16px
+				font-weight: 400
+				+mdl
+					font-size: 12px
+	&__footer
+		padding: 0 8px 8px
+		position: relative
+		+mdl
+			padding: 0 6px 6px
+	&__btn
+		display: flex
+		width: 100%
+		gap: 8px
+		align-items: center
+		justify-content: center
+		height: 64px
+		line-height: 1
+		font-family: var(--base-font)
+		font-size: 20px
+		font-weight: 500
+		text-align: center
+		text-decoration: none
+		color: var(--color-white)
+		background: var(--color-dark-grey)
+		border: none
+		border-radius: 8px
+		cursor: pointer
+		transition: background 0.2s linear, color 0.2s linear
+		+mdl
+			height: 48px
+			gap: 6px
+			font-size: 14px
+		.icon
 
-      color: var(--color-light-grey)
-      transition: color 0.2s linear, transform 0.2s linear
-      +mdl
-        font-size: 16px
+			color: var(--color-light-grey)
+			transition: color 0.2s linear, transform 0.2s linear
+			+mdl
+				font-size: 16px
 
-    &:hover, &:focus-visible, &.is-active
-      background: #444
-      color: var(--color-white)
+		&:hover, &:focus-visible, &.is-active
+			background: #444
+			color: var(--color-white)
 
-    &.is-active
-      .icon
-        color: var(--color-white)
+		&.is-active
+			.icon
+				color: var(--color-white)
 
-      .icon-circle-plus
-        transform: rotate(45deg)
+			.icon-circle-plus
+				transform: rotate(45deg)
 
 .cms-panel__dropdown
-  position: absolute
-  bottom: calc(100% + 8px)
-  left: 8px
-  right: 8px
-  border-radius: 8px
-  border: 1px solid var(--color-dark-grey)
-  overflow: hidden
-  z-index: 5
-  &-list
-    list-style-type: none
-  &-item
-    &:not(:last-child)
-      border-bottom: 1px solid var(--color-dark-grey)
+	position: absolute
+	bottom: calc(100% + 8px)
+	left: 8px
+	right: 8px
+	border-radius: 8px
+	border: 1px solid var(--color-dark-grey)
+	overflow: hidden
+	z-index: 5
+	&-list
+		list-style-type: none
+	&-item
+		&:not(:last-child)
+			border-bottom: 1px solid var(--color-dark-grey)
 
-  &-btn
-    display: flex
-    align-items: center
-    gap: 8px
-    padding: 12px 16px
-    font-size: 20px
-    font-family: var(--base-font)
-    font-weight: 400
-    line-height: 1
-    width: 100%
-    border: none
-    background: transparent
-    color: var(--color-white)
-    +mdl
-      font-size: 14px
-      padding: 8px 12px
-    .icon
-      color: var(--color-light-grey)
-      +mdl
-        font-size: 16px
-    &:hover, &:focus-visible
-      background: var(--color-dark-grey)
+	&-btn
+		display: flex
+		align-items: center
+		gap: 8px
+		padding: 12px 16px
+		font-size: 20px
+		font-family: var(--base-font)
+		font-weight: 400
+		line-height: 1
+		width: 100%
+		border: none
+		background: transparent
+		color: var(--color-white)
+		+mdl
+			font-size: 14px
+			padding: 8px 12px
+		.icon
+			color: var(--color-light-grey)
+			+mdl
+				font-size: 16px
+		&:hover, &:focus-visible
+			background: var(--color-dark-grey)
+
+
+.integration
+	&__section 
+		position: relative
+		min-height: 100vh
+		.section 
+			&__title 
+				margin-top: 64px
+				text-align: center
+				position: relative
+				z-index: 2
+	&__box 
+		// margin-bottom: 320px
+		&:last-child
+			margin-bottom: 0
+		&--bottom 
+			.section 
+				&__title 
+					margin-top: 0
+	&__title 
+		padding-top: 64px
+		text-align: center
+	&__row 
+		display: flex
+		max-width: 848px
+		margin: 0 auto
+		gap: 64px
+	&__item 
+		border: 1px solid var(--color-dark-grey)
+		border-radius: 24px
+		width: 240px
+		height: 240px
+		padding: 36px 16px
+		position: relative
+		margin-top: 140px
+		&::before 
+			content: ''
+			position: absolute
+			left: 50%
+			transform: translateX(-50%)
+			width: 1px
+			background: var(--color-dark-grey)
+			bottom: 100%
+			height: 141px
+		&:nth-child(2)
+			margin-top: 205px
+			&::before 
+				height: 205px
+		&:nth-child(3)
+			margin-top: 269px
+			&::before 
+				height: 269px
+		&-icon 
+			margin-bottom: 24px
+			img 
+				margin: 0 auto
+		&-title 
+			font-size: 28px
+			line-height: 1.1
+			font-weight: 500
+			text-align: center
+			white-space: nowrap
+
+
+
+
+
+
+
+
+
+
+
+
