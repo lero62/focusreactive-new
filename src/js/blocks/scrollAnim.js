@@ -1,46 +1,194 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
-import { SplitText } from 'gsap/SplitText.js';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function scrollAnimations() {
-  gsap.config({ trialWarn: false });
-  gsap.registerPlugin(ScrollTrigger, SplitText);
+	initTextColorAnimation();
+	initIntegrationAnimation();
+}
 
-  let textFillSplit = new SplitText(".js-textColorAnim", { type: "lines" });
-  let textFillMasks;
+function initTextColorAnimation() {
+	const fillText = document.querySelector('.js-textColorAnim');
+	const fillTextLines = document.querySelectorAll('.js-textColorAnim span');
 
-  function makeTextFillHappen() {
-    textFillMasks = [];
-    textFillSplit.lines.forEach((textFillTarget) => {
-      let textFillMask = document.createElement("span");
-      textFillMask.className = "text-fill-mask";
-      textFillTarget.append(textFillMask);
-      textFillMasks.push(textFillMask);
-      
-      gsap.to(textFillMask, {
-        scaleX: 0,
-        transformOrigin: "right center",
-        ease: "none",
-        scrollTrigger: {
-          trigger: textFillTarget,
-          scrub: 2.5,
-          start: "top 40%",
-          end: "bottom 30%"
-        }
-      });
-    });
-  }
+	if (fillText && fillTextLines.length > 0) {
+		fillTextLines.forEach((line) => {
+			line.style.backgroundPosition = '100% 0%';
+		});
 
-  window.addEventListener("resize", textFillNewTriggers);
+		fillTextLines.forEach((line, index) => {
+			ScrollTrigger.create({
+				trigger: fillText,
+				start: 'top 70%',
+				end: 'bottom 30%',
+				scrub: 1,
+				onEnter: () => {
+					line.style.backgroundPosition = '100% 0%';
+				},
+				onUpdate: function (self) {
+					const progress = self.progress;
+					const offset = index * 0.15;
+					const position = Math.max(
+						0,
+						Math.min(100, 100 - (progress - offset) * 100 * 2)
+					);
+					line.style.backgroundPosition = `${position}% 0%`;
+				},
+			});
+		});
+	}
+}
 
-  function textFillNewTriggers() {
-    ScrollTrigger.getAll().forEach((textFillTrigger, i) => {
-      textFillTrigger.kill();
-      textFillMasks[i].remove();
-    });
-    textFillSplit.split();
-    makeTextFillHappen();
-  }
-  
-  makeTextFillHappen();
+function initIntegrationAnimation() {
+	const integrationAnimSection = document.querySelector('.js-cms-animTrigger');
+	const integrationAnimItems = document.querySelectorAll('.js-cms-animBlock');
+	const integrationAnimMainTitle = document.querySelector(
+		'.integration__title span:first-child'
+	);
+	const integrationAnimGreenTitle = document.querySelector(
+		'.integration__title span:last-child'
+	);
+
+	if (
+		!integrationAnimSection ||
+		!integrationAnimItems.length ||
+		!integrationAnimMainTitle ||
+		!integrationAnimGreenTitle
+	)
+		return;
+
+	setupInitialStates();
+	createAnimationTimeline();
+
+	function setupInitialStates() {
+		gsap.set(integrationAnimItems, {
+			y: -30,
+			opacity: 0,
+		});
+
+		gsap.set(integrationAnimMainTitle, {
+			y: -100,
+			autoAlpha: 0,
+		});
+
+		gsap.set(integrationAnimGreenTitle, {
+			y: -100,
+			autoAlpha: 0,
+		});
+	}
+
+	function createAnimationTimeline() {
+		const integrationAnimMainTimeline = gsap.timeline({
+			scrollTrigger: {
+				trigger: integrationAnimSection,
+				start: 'top 70%',
+				end: () => '+=' + integrationAnimSection.offsetHeight,
+				scrub: 2,
+				pin: integrationAnimSection,
+				pinSpacing: false,
+			},
+		});
+
+		addItemsAnimation(integrationAnimMainTimeline);
+		addMainTitleAnimation(integrationAnimMainTimeline);
+		addItemsDownwardAnimation(integrationAnimMainTimeline);
+		addGreenTitleAnimation(integrationAnimMainTimeline);
+		addClassToggleAnimation(integrationAnimMainTimeline);
+	}
+
+	function addItemsAnimation(timeline) {
+		integrationAnimItems.forEach((item) => {
+			timeline.to(
+				item,
+				{
+					y: 0,
+					opacity: 1,
+					duration: 0.2,
+					ease: 'power2.out',
+				},
+				0.05
+			);
+		});
+	}
+
+	function addMainTitleAnimation(timeline) {
+		timeline.to(
+			integrationAnimMainTitle,
+			{
+				y: 0,
+				autoAlpha: 1,
+				duration: 0.2,
+				ease: 'power1.out',
+			},
+			0.3
+		);
+
+		timeline.to(
+			integrationAnimMainTitle,
+			{
+				autoAlpha: 0,
+				y: 100,
+				duration: 0.2,
+				ease: 'power1.out',
+			},
+			0.5
+		);
+	}
+
+	function addItemsDownwardAnimation(timeline) {
+		timeline.to(
+			integrationAnimItems,
+			{
+				y: 0,
+				duration: 0.3,
+				ease: 'power1.out',
+				stagger: 0.05,
+			},
+			0.6
+		);
+	}
+
+	function addGreenTitleAnimation(timeline) {
+		timeline.to(
+			integrationAnimGreenTitle,
+			{
+				y: 0,
+				autoAlpha: 1,
+				duration: 0.2,
+				ease: 'power1.out',
+			},
+			0.7
+		);
+
+		timeline.to(
+			integrationAnimGreenTitle,
+			{
+				autoAlpha: 0,
+				y: 100,
+				duration: 0.2,
+				ease: 'power1.out',
+			},
+			0.9
+		);
+	}
+
+	function addClassToggleAnimation(timeline) {
+		timeline.to(
+			integrationAnimItems,
+			{
+				onStart: function () {
+					this.targets().forEach((el) => {
+						el.classList.add('is-active');
+					});
+				},
+				onReverseComplete: function () {
+					this.targets().forEach((el) => {
+						el.classList.remove('is-active');
+					});
+				},
+			},
+			0.95
+		);
+	}
 }

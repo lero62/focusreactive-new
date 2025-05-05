@@ -1,23 +1,28 @@
 // ROLL TEXT ANIMATION
 
 .roll 
-	overflow: hidden
 	&__box 
 		position: relative
-		span 
-			&:last-child
+		overflow: hidden
+		display: block
+		+md 
+			overflow: visible
+		span
+			display: block
+			&::before 
+				content: attr(data-text)
 				position: absolute
 				left: 0
 				bottom: 100%
-	@media (pointer: fine)
-		&.is-active 
+			+md 
+				&::before 
+					display: none
+	@media (hover: hover)
+		&:not(:disabled):hover
 			.roll 
 				&__box 
-					animation-name: rollAnimation
-					animation-play-state: running
-					animation-iteration-count: infinite
-					animation-duration: .4s
-					animation-timing-function: cubic-bezier(.16,.03,.08,1.55)
+					span
+						animation: rollAnimation .5s cubic-bezier(.16,.03,.08,1.55) .1s forwards
 
 
 @keyframes rollAnimation
@@ -30,21 +35,21 @@
 
 // UNDERLINE ANIM 
 
-.line-effect
-	position: relative
-	z-index: 1 
-	&::before 
-		content: ''
-		position: absolute
-		left: 0
-		bottom: 0
-		height: 2px 
-		background: #fff 
-		width: 100%
-		transform-origin: 100% 50%
-		transform: scale3d(0, 1, 1)
-		transition: transform 0.3s ease
-	&:hover, &:focus-visible
-		&::before 
-			transform-origin: 0% 50%
-			transform: scale3d(1, 1, 1)
+// .line-effect
+// 	position: relative
+// 	z-index: 1 
+// 	&::before 
+// 		content: ''
+// 		position: absolute
+// 		left: 0
+// 		bottom: 0
+// 		height: 2px 
+// 		background: #fff 
+// 		width: 100%
+// 		transform-origin: 100% 50%
+// 		transform: scale3d(0, 1, 1)
+// 		transition: transform 0.3s ease
+// 	&:hover, &:focus-visible
+// 		&::before 
+// 			transform-origin: 0% 50%
+// 			transform: scale3d(1, 1, 1)

@@ -21,9 +21,9 @@
 		color: var(--color-white)
 
 	&:not(:disabled):hover, &:focus-visible
-		background: var(--color-accent-light)
+		background: darken($accent-color, 8%)
 	&:focus-visible
-		outline: 2px solid var(--color-accent-light)
+		outline: 1px solid var(--color-dark-grey)
 	&--xl
 		height: 60px
 		font-size: 16px
@@ -31,7 +31,7 @@
 		--btn-px: 10px
 		display: flex
 		width: 100%
-		min-width: none
+		min-width: auto
 	+xl 
 		height: 44px
 		padding: 0 24px

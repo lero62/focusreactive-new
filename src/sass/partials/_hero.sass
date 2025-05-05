@@ -7,6 +7,8 @@
 	position: relative
 	z-index: 1
 	display: flex
+	@media only screen and (orientation: landscape)
+		height: auto
 	+mdl
 		padding-top: 130px
 	+md
@@ -27,8 +29,6 @@
 	&__content
 		margin: auto 0
 		padding-left: 8.5%
-		+mdsm 
-			padding-left: 10.5%
 		+sm
 			padding-left: 0
 		.hero__text
@@ -59,9 +59,8 @@
 		+xs
 			font-size: 40px
 			max-width: 330px
-
-	&-accent
-		color: var(--color-accent)
+		&-accent
+			color: var(--color-accent)
 	&__text
 		max-width: 385px
 		font-size: 20px
