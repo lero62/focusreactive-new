@@ -8,36 +8,66 @@
 	left: 0
 	width: 100%
 	z-index: 100
-	+sm
+	+mdsm
 		padding: 24px 0
 	&.is-sticky
-		backdrop-filter: blur(10px)
-		background: rgba(#000, 0.3)
+		&::before 
+			content: ''
+			position: absolute
+			left: 0
+			top: 0
+			width: 100%
+			height: 100%
+			backdrop-filter: blur(10px)
+			background: rgba(#000, 0.3)
+			z-index: -1
 	&__container
 		display: flex
 		align-items: center
 		gap: 32px
 		justify-content: space-between
-
+	&__logo 
+		img 
+			max-width: 160px
+			height: auto
+		+xl 
+			img 
+				max-width: 110px
+		+mdsm 
+			position: relative
+			z-index: 101
+		&:focus-visible 
+			outline: 2px solid var(--color-accent)
 	&__nav
-		min-width: 62%
-		display: flex
-		align-items: center
-		justify-content: space-between
-		gap: 32px
-		+mdl
-			justify-content: flex-end
-			min-width: auto
-			flex: 1 1 auto
-		+md
-			display: none
-
+		+mdsm 
+			position: fixed
+			left: 0
+			top: 0
+			width: 100%
+			height: 100dvh
+			padding-top: 197px
+			padding-left: 13%
+			padding-bottom: 100px
+			display: flex
+			flex-direction: column
+			transform: translateX(-100%)
+			transition: transform .35s ease 
+			will-change: transform
+			z-index: 99
+			overflow-y: auto
+			background: rgba(0, 0, 0, 0.50)
+			backdrop-filter: blur(20px)
+			&.is-open 
+				transform: translateX(0)
 		&-list
 			list-style-type: none
 			display: flex
 			gap: 32px
-			+mdl
-				margin: 0 auto
+			+xl 
+				gap: 24px
+			+mdsm 
+				flex-direction: column
+				gap: 0
 		&-item
 			position: relative
 		&-link
@@ -46,9 +76,50 @@
 			gap: 6px
 			font-weight: 500
 			color: var(--color-white)
+			white-space: nowrap
+			width: fit-content
+			+xl 
+				font-size: 16px
+			+mdsm 
+				font-size: 88px
+				font-weight: 600
+				line-height: 1.15
+			&.roll 
+				padding-bottom: 2px
+			&::before 
+				height: 2px
 			&--dropdown
 				&:after
 					flex: none
 					content: ''
 					display: block
 					+arr(8px, 4px, var(--color-accent), b)
+
+
+
+.hamburger 
+	+mdsm 
+		width: 48px
+		height: 48px
+		display: flex
+		flex-direction: column
+		justify-content: center
+		gap: 6px
+		z-index: 101
+		&__line
+			width: 100%
+			height: 2px 
+			background: #fff
+			transition: transform .35s ease, top .35s ease
+			will-change: transform
+			position: relative
+		&.is-active 
+			.hamburger 
+				&__line 
+					transform-origin: 50% 50%
+					&:first-child
+						transform: rotate(45deg)
+						top: 4px
+					&:last-child
+						transform: rotate(-45deg)
+						bottom: 4px

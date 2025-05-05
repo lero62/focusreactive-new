@@ -109,6 +109,9 @@
 		max-width: 892px
 		width: 100%
 		margin: 0 auto
+		display: none
+		&.show 
+			display: block
 		+lg
 			padding: 32px 28px
 
@@ -118,6 +121,7 @@
 		font-weight: 600
 		text-align: center
 		color: var(--color-white)
+		min-width: 80px
 		+lg
 			font-size: 40px
 		+mdl
@@ -339,6 +343,7 @@
 		padding: 0
 		border-radius: 4px
 		user-select: none
+		
 		+mdl
 			width: 16px
 			height: 16px
@@ -347,10 +352,13 @@
 			color: var(--color-light-grey)
 			+mdl
 				font-size: 16px
-		&:hover, &:focus-visible
+		@media (hover: hover)
+			&:hover
+				.icon
+					color: var(--color-white)
+		&:focus-visible
 			.icon
 				color: var(--color-white)
-
 	&__main
 		padding: 0 20px
 		overflow-y: auto
@@ -378,16 +386,14 @@
 			display: none
 
 	&__block
-		display: flex
+		display: none
 		align-items: center
 		gap: 8px
 		width: 100%
-		position: absolute
-		left: 0
-		width: 100%
 		background: #0E0E0E
-		&.is-active 
-			z-index: 10
+		user-select: none
+		&.show
+			display: flex
 		+mdl
 			gap: 6px
 		&-item
@@ -410,6 +416,7 @@
 			line-height: 1
 			+text-overflow
 			border: 1px solid var(--color-dark-grey)
+			cursor: pointer
 			+mdl
 				padding: 7px 12px
 				font-size: 14px
@@ -448,6 +455,10 @@
 				padding: 4px 0
 				font-size: 16px
 				font-weight: 400
+				span 
+					white-space: nowrap
+					overflow: hidden
+					text-overflow: ellipsis
 				+mdl
 					font-size: 12px
 	&__footer
@@ -484,7 +495,8 @@
 			transition: color 0.2s linear, transform 0.2s linear
 			+mdl
 				font-size: 16px
-
+		&-icon 
+			user-select: none
 		&:hover, &:focus-visible, &.is-active
 			background: #444
 			color: var(--color-white)
@@ -508,6 +520,9 @@
 	&-list
 		list-style-type: none
 	&-item
+		display: none
+		&.show
+			display: block
 		&:not(:last-child)
 			border-bottom: 1px solid var(--color-dark-grey)
 
@@ -538,29 +553,25 @@
 .integration
 	&__section 
 		position: relative
-		min-height: 100vh
-		.section 
-			&__title 
-				margin-top: 64px
-				text-align: center
-				position: relative
-				z-index: 2
-	&__box 
-		// margin-bottom: 320px
-		&:last-child
-			margin-bottom: 0
-		&--bottom 
-			.section 
-				&__title 
-					margin-top: 0
+		height: 1200px
+		// overflow: hidden
 	&__title 
-		padding-top: 64px
 		text-align: center
+		position: absolute
+		left: 50%
+		top: 50%
+		transform: translate(-50%, -50%)
+		width: 100%
+		z-index: 1
+		span 
+			display: block
 	&__row 
 		display: flex
 		max-width: 848px
 		margin: 0 auto
 		gap: 64px
+	&__box 
+		transform: translateY(-300px)
 	&__item 
 		border: 1px solid var(--color-dark-grey)
 		border-radius: 24px

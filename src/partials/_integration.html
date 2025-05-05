@@ -1,11 +1,11 @@
-<section class="section integration hidden-md" id="integration">
+<section class="section integration" id="integration">
 	<div class="container">
 
-		<div class="cms-preview">
+		<div class="cms-preview js-cms-animTrigger hidden-mdsm">
 			<div class="cms-preview__content">
-				<div class="cms-preview__scrollbar">
-					<div class="preview-page">
-						<section class="preview-page__section" data-label="Hero Section">
+				<div class="cms-preview__scrollbar js-cms-scroll">
+					<div class="preview-page js-cms-preview">
+						<section class="preview-page__section show js-cms-section" data-label="Hero Section" data-section="1">
 							<h2 class="preview-page__title h1" data-label="H1" data-label-blue contenteditable="true">Bespoke
 								<br>Modular Website Editing.
 								<br>No Devs required.
@@ -15,7 +15,7 @@
 								<a href="#" class="preview-page__btn preview-page__btn--link">Learn More</a>
 							</div>
 						</section>
-						<section class="preview-page__section" data-label="CTA Section">
+						<section class="preview-page__section show js-cms-section" data-label="CTA Section" data-section="2">
 							<div class="preview-page__card">
 								<picture class="preview-page__card-img">
 									<img src="assets/img/preview-page-card-img.webp" alt="" role="presentation" />
@@ -41,7 +41,7 @@
 								</div>
 							</div>
 						</section>
-						<section class="preview-page__section" data-label="Blog Section">
+						<section class="preview-page__section show js-cms-section" data-label="Blog Section" data-section="3">
 							<h2 class="preview-page__title" data-label="H2" data-label-blue contenteditable="true">Latest News</h2>
 							<div class="preview-page__articles">
 								<article class="preview-page__article">
@@ -67,7 +67,7 @@
 								</article>
 							</div>
 						</section>
-						<section class="preview-page__section" data-label="Clients Section">
+						<section class="preview-page__section js-cms-section" data-label="Clients Section" data-section="4">
 							<h2 class="preview-page__title" data-label="H2" data-label-blue contenteditable="true">Our Clients</h2>
 							<div class="preview-page__partners">
 								<div class="preview-page__partner">
@@ -94,10 +94,10 @@
 					<div class="cms-panel__title">CMS Panel</div>
 				</div>
 
-				<div class="cms-panel__main">
+				<div class="cms-panel__main js-drag-container">
 
-					<div class="cms-panel__block">
-						<button class="cms-panel__btn-icon" type="button">
+					<div class="cms-panel__block js-drag-block show" data-section="1">
+						<button class="cms-panel__btn-icon js-drag-btn" type="button">
 							<svg class="icon icon-menu">
 								<use xlink:href="assets/img/sprite.svg#menu"></use>
 							</svg>
@@ -108,15 +108,15 @@
 							</svg>
 							<span>Hero</span>
 						</div>
-						<button class="cms-panel__btn-icon" type="button">
+						<button class="cms-panel__btn-icon js-cms-delete" type="button">
 							<svg class="icon icon-dots">
-								<use xlink:href="assets/img/sprite.svg#dots"></use>
+								<use xlink:href="assets/img/sprite.svg#close"></use>
 							</svg>
 						</button>
 					</div>
 
-					<div class="cms-panel__block">
-						<button class="cms-panel__btn-icon" type="button">
+					<div class="cms-panel__block js-drag-block show" data-section="2">
+						<button class="cms-panel__btn-icon js-drag-btn" type="button">
 							<svg class="icon icon-menu">
 								<use xlink:href="assets/img/sprite.svg#menu"></use>
 							</svg>
@@ -127,15 +127,15 @@
 							</svg>
 							<span>CTA</span>
 						</div>
-						<button class="cms-panel__btn-icon" type="button">
+						<button class="cms-panel__btn-icon js-cms-delete" type="button">
 							<svg class="icon icon-dots">
-								<use xlink:href="assets/img/sprite.svg#dots"></use>
+								<use xlink:href="assets/img/sprite.svg#close"></use>
 							</svg>
 						</button>
 					</div>
 
-					<div class="cms-panel__block">
-						<button class="cms-panel__btn-icon" type="button">
+					<div class="cms-panel__block js-drag-block show" data-section="3">
+						<button class="cms-panel__btn-icon js-drag-btn" type="button">
 							<svg class="icon icon-menu">
 								<use xlink:href="assets/img/sprite.svg#menu"></use>
 							</svg>
@@ -150,45 +150,63 @@
 									<use xlink:href="assets/img/sprite.svg#arrow-down"></use>
 								</svg>
 							</button>
-							<ul class="cms-panel__block-dropdown" id="cms-panel-block-dropdown" data-dropdown="false">
-								<li>
-									<button class="cms-panel__btn-icon" type="button">
-										<svg class="icon icon-arrow-alt-right">
-											<use xlink:href="assets/img/sprite.svg#arrow-alt-right"></use>
+							<ul class="cms-panel__block-dropdown js-drag-dropdown-container" id="cms-panel-block-dropdown"
+								data-dropdown="false">
+								<li class="js-drag-block">
+									<button class="cms-panel__btn-icon js-drag-btn" type="button">
+										<svg class="icon icon-menu">
+											<use xlink:href="assets/img/sprite.svg#menu"></use>
 										</svg>
 									</button>
-									Card 1
+									<span>Why migrating to Webflow to Headless CMS?</span>
 								</li>
-								<li>
-									<button class="cms-panel__btn-icon" type="button">
-										<svg class="icon icon-arrow-alt-right">
-											<use xlink:href="assets/img/sprite.svg#arrow-alt-right"></use>
+								<li class="js-drag-block">
+									<button class="cms-panel__btn-icon js-drag-btn" type="button">
+										<svg class="icon icon-menu">
+											<use xlink:href="assets/img/sprite.svg#menu"></use>
 										</svg>
 									</button>
-									Card 2
+									<span>Best headless CMS for React</span>
 								</li>
-								<li>
-									<button class="cms-panel__btn-icon" type="button">
-										<svg class="icon icon-arrow-alt-right">
-											<use xlink:href="assets/img/sprite.svg#arrow-alt-right"></use>
+								<li class="js-drag-block">
+									<button class="cms-panel__btn-icon js-drag-btn" type="button">
+										<svg class="icon icon-menu">
+											<use xlink:href="assets/img/sprite.svg#menu"></use>
 										</svg>
 									</button>
-									Card 3
+									<span>FocusReactive has become Vercel Partner</span>
 								</li>
 							</ul>
 						</div>
-						<button class="cms-panel__btn-icon" type="button">
+						<button class="cms-panel__btn-icon js-cms-delete" type="button">
 							<svg class="icon icon-dots">
-								<use xlink:href="assets/img/sprite.svg#dots"></use>
+								<use xlink:href="assets/img/sprite.svg#close"></use>
 							</svg>
 						</button>
+					</div>
 
-
+					<div class="cms-panel__block js-drag-block" data-section="4">
+						<button class="cms-panel__btn-icon js-drag-btn" type="button">
+							<svg class="icon icon-menu">
+								<use xlink:href="assets/img/sprite.svg#menu"></use>
+							</svg>
+						</button>
+						<div class="cms-panel__block-name">
+							<svg class="icon icon-layout">
+								<use xlink:href="assets/img/sprite.svg#layout"></use>
+							</svg>
+							<span>Our Clients</span>
+						</div>
+						<button class="cms-panel__btn-icon js-cms-delete" type="button">
+							<svg class="icon icon-dots">
+								<use xlink:href="assets/img/sprite.svg#close"></use>
+							</svg>
+						</button>
 					</div>
 
 				</div>
 
-				<div class="cms-panel__footer">
+				<div class="cms-panel__footer js-cms-footer">
 					<button class="cms-panel__btn" type="button" data-dropdown-toggle="#cms-panel-dropdown">
 						<svg class="icon icon-circle-plus">
 							<use xlink:href="assets/img/sprite.svg#circle-plus"></use>
@@ -199,15 +217,15 @@
 
 					<div id="cms-panel-dropdown" class="cms-panel__dropdown" data-dropdown="false">
 						<ul class="cms-panel__dropdown-list">
-							<li class="cms-panel__dropdown-item">
+							<li class="cms-panel__dropdown-item" data-section="1">
 								<button type="button" class="cms-panel__dropdown-btn">
 									<svg class="icon icon-layout">
 										<use xlink:href="assets/img/sprite.svg#layout"></use>
 									</svg>
-									Our Clients
+									Hero
 								</button>
 							</li>
-							<li class="cms-panel__dropdown-item">
+							<li class="cms-panel__dropdown-item" data-section="2">
 								<button type="button" class="cms-panel__dropdown-btn">
 									<svg class="icon icon-layout">
 										<use xlink:href="assets/img/sprite.svg#layout"></use>
@@ -215,12 +233,20 @@
 									CTA
 								</button>
 							</li>
-							<li class="cms-panel__dropdown-item">
+							<li class="cms-panel__dropdown-item" data-section="3">
 								<button type="button" class="cms-panel__dropdown-btn">
 									<svg class="icon icon-layout">
 										<use xlink:href="assets/img/sprite.svg#layout"></use>
 									</svg>
-									Hero
+									Blog
+								</button>
+							</li>
+							<li class="cms-panel__dropdown-item show" data-section="4">
+								<button type="button" class="cms-panel__dropdown-btn">
+									<svg class="icon icon-layout">
+										<use xlink:href="assets/img/sprite.svg#layout"></use>
+									</svg>
+									Our Clients
 								</button>
 							</li>
 						</ul>
@@ -235,52 +261,32 @@
 			</button>
 		</div>
 
-		<div class="integration__section">
+		<div class="integration__section hidden">
 			<div class="integration__box">
 				<div class="integration__row">
-					<div class="integration__item">
+					<div class="integration__item js-cms-animBlock">
 						<div class="integration__item-icon">
 							<img src="assets/img/integrate-icon-1.svg" alt="" role="presentation" width="120" height="120">
 						</div>
 						<div class="integration__item-title">CRM</div>
 					</div>
-					<div class="integration__item">
+					<div class="integration__item js-cms-animBlock">
 						<div class="integration__item-icon">
 							<img src="assets/img/integrate-icon-2.svg" alt="" role="presentation" width="120" height="120">
 						</div>
 						<div class="integration__item-title">Analytics</div>
 					</div>
-					<div class="integration__item">
+					<div class="integration__item js-cms-animBlock">
 						<div class="integration__item-icon">
 							<img src="assets/img/integrate-icon-3.svg" alt="" role="presentation" width="120" height="120">
 						</div>
 						<div class="integration__item-title">Database</div>
 					</div>
 				</div>
-				<h2 class="section__title">Integrate anything</h2>
-			</div>
-			<div class="integration__box integration__box--bottom">
-				<h2 class="section__title green-color">Ship everywhere</h2>
-				<div class="integration__row">
-					<div class="integration__item">
-						<div class="integration__item-icon">
-							<img src="assets/img/integrate-icon-4.svg" alt="" role="presentation" width="120" height="120">
-						</div>
-						<div class="integration__item-title">Ecommerce</div>
-					</div>
-					<div class="integration__item">
-						<div class="integration__item-icon">
-							<img src="assets/img/integrate-icon-5.svg" alt="" role="presentation" width="120" height="120">
-						</div>
-						<div class="integration__item-title">Aplications</div>
-					</div>
-					<div class="integration__item">
-						<div class="integration__item-icon">
-							<img src="assets/img/integrate-icon-6.svg" alt="" role="presentation" width="120" height="120">
-						</div>
-						<div class="integration__item-title">Multi-Tenant</div>
-					</div>
-				</div>
+				<h2 class="section__title integration__title">
+					<span>Integrate anything</span>
+					<span class="green-color">ship everywhere</span>
+				</h2>
 			</div>
 		</div>
 	</div>

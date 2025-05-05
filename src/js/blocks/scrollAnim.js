@@ -1,75 +1,46 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
+import { SplitText } from 'gsap/SplitText.js';
 
-gsap.registerPlugin(ScrollTrigger);
+export function scrollAnimations() {
+  gsap.config({ trialWarn: false });
+  gsap.registerPlugin(ScrollTrigger, SplitText);
 
-export function initIntegrationAnimation() {
-  const section = document.querySelector('.integration__section');
-  if (!section) return;
+  let textFillSplit = new SplitText(".js-textColorAnim", { type: "lines" });
+  let textFillMasks;
 
-  const topBox = section.querySelector('.integration__box');
-  const bottomBox = section.querySelector('.integration__box--bottom');
+  function makeTextFillHappen() {
+    textFillMasks = [];
+    textFillSplit.lines.forEach((textFillTarget) => {
+      let textFillMask = document.createElement("span");
+      textFillMask.className = "text-fill-mask";
+      textFillTarget.append(textFillMask);
+      textFillMasks.push(textFillMask);
+      
+      gsap.to(textFillMask, {
+        scaleX: 0,
+        transformOrigin: "right center",
+        ease: "none",
+        scrollTrigger: {
+          trigger: textFillTarget,
+          scrub: 2.5,
+          start: "top 40%",
+          end: "bottom 30%"
+        }
+      });
+    });
+  }
 
-  if (!topBox || !bottomBox) return;
+  window.addEventListener("resize", textFillNewTriggers);
 
-  const topItems = topBox.querySelectorAll('.integration__item');
-  const bottomItems = bottomBox.querySelectorAll('.integration__item');
-  const topTitle = topBox.querySelector('.section__title');
-  const bottomTitle = bottomBox.querySelector('.section__title');
-
-  gsap.set([...topItems, topTitle], { opacity: 0, y: -300 });
-  gsap.set([...bottomItems, bottomTitle], { opacity: 0, y: -300 });
-
-  const appearDuration = 0.6;   
-  const appearDelayStep = 0.1;   
-
-  let timeline1 = gsap.timeline({
-    scrollTrigger: {
-      trigger: topBox,
-      start: "-10% top",
-      end: "+=100%",
-      scrub: 1,
-      pin: true,
-      pinSpacing: true,
-    }
-  });
-
-  topItems.forEach((item, index) => {
-    timeline1.to(item, {
-      opacity: 1,
-      y: 0,
-      duration: appearDuration
-    }, index * appearDelayStep);
-  });
-
-  timeline1.to(topTitle, {
-    opacity: 1,
-    y: 0,
-    duration: appearDuration
-  }, topItems.length * appearDelayStep);
-
-  let timeline2 = gsap.timeline({
-    scrollTrigger: {
-      trigger: bottomBox,
-      start: "-10% 20%",
-      end: "+=100%",
-      scrub: 1,
-      pin: true,
-      pinSpacing: true,
-    }
-  });
-
-  timeline2.to(bottomTitle, {
-    opacity: 1,
-    y: 0,
-    duration: appearDuration
-  }, 0);
-
-  bottomItems.forEach((item, index) => {
-    timeline2.to(item, {
-      opacity: 1,
-      y: 0,
-      duration: appearDuration
-    }, 0.2 + index * appearDelayStep);
-  });
+  function textFillNewTriggers() {
+    ScrollTrigger.getAll().forEach((textFillTrigger, i) => {
+      textFillTrigger.kill();
+      textFillMasks[i].remove();
+    });
+    textFillSplit.split();
+    makeTextFillHappen();
+  }
+  
+  makeTextFillHappen();
 }

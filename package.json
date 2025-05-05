@@ -40,6 +40,7 @@
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
+    "@shopify/draggable": "^1.1.4",
     "dotenv": "^16.5.0",
     "gsap": "^3.13.0",
     "gulp-changed": "^5.0.2",

@@ -20,8 +20,10 @@
 		background: var(--color-dark-grey)
 		color: var(--color-white)
 
-	&:not(:disabled):hover
+	&:not(:disabled):hover, &:focus-visible
 		background: var(--color-accent-light)
+	&:focus-visible
+		outline: 2px solid var(--color-accent-light)
 	&--xl
 		height: 60px
 		font-size: 16px
@@ -30,3 +32,7 @@
 		display: flex
 		width: 100%
 		min-width: none
+	+xl 
+		height: 44px
+		padding: 0 24px
+		font-size: 16px

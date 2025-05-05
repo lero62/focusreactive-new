@@ -72,11 +72,32 @@
 			+min($desktop + 1px)
 				font-size: 96px
 
+
 .animation-fade-up
 	opacity: 0
 	transform: translateY(30px)
 	transition: opacity 0.5s ease, transform 0.5s ease
-
 	&.is-anim
 		opacity: 1
 		transform: translateY(0)
+
+.clutch
+	&-logo
+		&:focus-visible 
+			outline: 2px solid var(--color-accent)
+
+
+@include mdsm
+	:root
+		--container-px: 24px
+
+
+.text-fill-mask
+	width: 100%
+	height: 115%
+	position: absolute
+	background: #000
+	left: 0
+	top: 0
+	opacity: 0.85
+	
