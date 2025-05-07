@@ -582,8 +582,10 @@
 		&-fix 
 			position: relative
 			height: 1600px
+			+mdl 
+				height: 1500px
 			+md 
-				height: 1200px
+				height: 1100px
 			+sm 
 				height: 800px
 	&__title 
@@ -596,12 +598,19 @@
 		z-index: 1
 		span 
 			display: block
-			position: absolute
-			left: 0
-			top: 0
-			width: 100%
 			&:last-child
+				position: absolute
+				left: 0
+				top: 0
+				width: 100%
 				visibility: hidden
+			+xs 
+				max-width: 300px
+				margin-left: auto
+				margin-right: auto
+				&:last-child
+					left: 50%
+					transform: translateX(-50%)
 		&.is-active 
 			span 
 				visibility: hidden
