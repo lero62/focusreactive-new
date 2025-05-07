@@ -557,6 +557,7 @@
 		position: relative
 		z-index: 2
 		display: block
+		background: var(--color-black)
 		img, iframe, video
 			width: 100%
 			aspect-ratio: 16/9
@@ -595,13 +596,17 @@
 		z-index: 1
 		span 
 			display: block
+			position: absolute
+			left: 0
+			top: 0
+			width: 100%
 			&:last-child
-				display: none
+				visibility: hidden
 		&.is-active 
 			span 
-				display: none
+				visibility: hidden
 				&:last-child
-					display: block
+					visibility: visible
 	&__row 
 		display: flex
 		justify-content: center
@@ -653,6 +658,9 @@
 			margin-top: 64px
 			&::before
 				height: 64px
+		+xxs 
+			width: 80px
+			height: 80px
 		&:nth-child(2)
 			margin-top: 205px
 			&::before 
@@ -688,6 +696,9 @@
 			+sm 
 				width: 50px
 				height: 50px
+			+xxs 
+				width: 40px
+				height: 40px
 			img 
 				transition: opacity .5s linear 
 				width: 100%
