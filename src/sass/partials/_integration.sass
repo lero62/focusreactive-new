@@ -552,8 +552,6 @@
 		&:hover, &:focus-visible
 			background: var(--color-dark-grey)
 
-
-
 .cms
 	&-picture 
 		position: relative
@@ -566,35 +564,51 @@
 
 
 .integration
+	+sm 
+		position: relative
+		&::before 
+			content: ''
+			position: absolute
+			left: 0
+			top: 0
+			width: 100%
+			height: 80px
+			background: #000
+			z-index: 2
+			pointer-events: none
 	&__section 
-		height: 1200px
-		+md 
-			height: 800px
+		position: relative
+		&-fix 
+			position: relative
+			height: 1600px
+			+md 
+				height: 1200px
+			+sm 
+				height: 800px
 	&__title 
 		text-align: center
 		position: absolute
 		left: 50%
-		top: -20%
-		transform: translateX(-50%)
+		top: 50%
+		transform: translate(-50%, -50%)
 		width: 100%
 		z-index: 1
 		span 
-			position: absolute
-			width: 100%
-			height: 100%
-			left: 0
-			top: 0
+			display: block
+			&:last-child
+				display: none
+		&.is-active 
+			span 
+				display: none
+				&:last-child
+					display: block
 	&__row 
 		display: flex
 		justify-content: center
 		max-width: 848px
 		margin: 0 auto
 		gap: 64px
-		position: absolute
-		width: 100%
-		left: 50%
-		transform: translateX(-50%)
-		top: -30%
+		transform: translateY(-100%)
 		+mdl 
 			gap: 40px
 		+md 
@@ -659,7 +673,7 @@
 				margin-top: 160px
 				&::before 
 					height: 160px
-			+md 
+			+sm 
 				margin-top: 104px
 				&::before 
 					height: 104px
