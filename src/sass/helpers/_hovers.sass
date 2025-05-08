@@ -6,17 +6,19 @@
 		overflow: hidden
 		display: block
 		+md 
-			overflow: visible
+			@media (hover: none)
+				overflow: visible
 		span
 			display: block
 			&::before 
 				content: attr(data-text)
 				position: absolute
 				left: 0
-				bottom: 100%
+				bottom: calc(100% + 2px)
 			+md 
-				&::before 
-					display: none
+				@media (hover: none)
+					&::before 
+						display: none
 	@media (hover: hover)
 		&:not(:disabled):hover
 			.roll 

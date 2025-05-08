@@ -9,35 +9,46 @@ export function scrollAnimations() {
 }
 
 function initTextColorAnimation() {
-	const fillText = document.querySelector('.js-textColorAnim');
-	const fillTextLines = document.querySelectorAll('.js-textColorAnim span');
+  const fillText = document.querySelector('.js-textColorAnim');
+  const fillTextLines = document.querySelectorAll('.js-textColorAnim span');
+  
+  if (fillText && fillTextLines.length > 0) {
+    fillTextLines.forEach((line) => {
+      line.style.backgroundPosition = '100% 0%';
+    });
+    
+    fillTextLines.forEach((line, index) => {
 
-	if (fillText && fillTextLines.length > 0) {
-		fillTextLines.forEach((line) => {
-			line.style.backgroundPosition = '100% 0%';
-		});
-
-		fillTextLines.forEach((line, index) => {
-			ScrollTrigger.create({
-				trigger: fillText,
-				start: 'top 70%',
-				end: 'bottom 30%',
-				scrub: 1,
-				onEnter: () => {
-					line.style.backgroundPosition = '100% 0%';
-				},
-				onUpdate: function (self) {
-					const progress = self.progress;
-					const offset = index * 0.15;
-					const position = Math.max(
-						0,
-						Math.min(100, 100 - (progress - offset) * 100 * 2)
-					);
-					line.style.backgroundPosition = `${position}% 0%`;
-				},
-			});
-		});
-	}
+      let startTrigger = 'top 70%';
+      let endTrigger = 'bottom 30%';
+      
+      if (window.innerWidth < 768) {
+        startTrigger = 'top 100%'; 
+        endTrigger = 'bottom 70%'; 
+      }
+      
+      ScrollTrigger.create({
+        trigger: fillText,
+        start: startTrigger,
+        end: endTrigger,
+        scrub: 1,
+        onEnter: () => {
+          line.style.backgroundPosition = '100% 0%';
+        },
+        onUpdate: function (self) {
+          const progress = self.progress;
+          const offset = index * 0.15;
+          const position = Math.max(
+            0,
+            Math.min(100, 100 - (progress - offset) * 100 * 2)
+          );
+          line.style.backgroundPosition = `${position}% 0%`;
+        },
+      });
+    });
+    
+    
+  }
 }
 
 function initIntegrationAnimation() {

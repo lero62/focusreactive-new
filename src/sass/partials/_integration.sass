@@ -558,15 +558,16 @@
 		z-index: 2
 		display: block
 		background: var(--color-black)
+		aspect-ratio: 16/9
 		img, iframe, video
 			width: 100%
-			aspect-ratio: 16/9
+			height: 100%
 			display: block
-
 
 .integration
 	+sm 
 		position: relative
+		padding-top: 40px
 		&::before 
 			content: ''
 			position: absolute
@@ -581,13 +582,9 @@
 		position: relative
 		&-fix 
 			position: relative
-			height: 1600px
-			+mdl 
-				height: 1500px
-			+md 
-				height: 1100px
+			height: 1000px
 			+sm 
-				height: 800px
+				height: 500px
 	&__title 
 		text-align: center
 		position: absolute

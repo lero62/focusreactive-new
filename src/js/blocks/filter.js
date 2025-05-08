@@ -1,5 +1,4 @@
 export function filterInit() {
-
   const portfolioRow = document.querySelector('.js-filter-container');
   if (!portfolioRow) return;
   
@@ -7,6 +6,7 @@ export function filterInit() {
   if (!portfolioItems.length) return;
   
   const showMoreBtn = document.querySelector('.js-portfolio-show');
+  const showMoreBtnContainer = showMoreBtn ? showMoreBtn.closest('.portfolio-nav') : null;
   const filterBtns = document.querySelectorAll('.js-filter-btn');
   const itemsToShow = 8;
   let currentFilter = 'all';
@@ -18,12 +18,21 @@ export function filterInit() {
     });
   }
   
+  function getOffsetByBreakpoint() {
+    const windowWidth = window.innerWidth;
+    if (windowWidth > 1299) return 80;
+    if (windowWidth > 1024) return 50;
+    if (windowWidth > 767) return 30;
+    return 30;
+  }
+  
   function calculateVisibleHeight(items) {
     const visibleItems = items.slice(0, itemsToShow);
     if (visibleItems.length === 0) return 0;
     
     const columnCount = 2;
     const rowsToShow = Math.ceil(Math.min(visibleItems.length, itemsToShow) / columnCount);
+    const offset = getOffsetByBreakpoint();
     let totalHeight = 0;
     
     for (let i = 0; i < rowsToShow; i++) {
@@ -31,13 +40,13 @@ export function filterInit() {
       for (let j = 0; j < columnCount; j++) {
         const itemIndex = i * columnCount + j;
         if (itemIndex < visibleItems.length) {
-          rowHeight = Math.max(rowHeight, visibleItems[itemIndex].offsetHeight - 104);
+          rowHeight = Math.max(rowHeight, visibleItems[itemIndex].offsetHeight - offset);
         }
       }
       totalHeight += rowHeight;
     }
     
-    return rowsToShow > 1 ? totalHeight + 160 : totalHeight;
+    return rowsToShow > 1 ? totalHeight + 120 : totalHeight;
   }
   
   function animateItems(items) {
@@ -58,6 +67,17 @@ export function filterInit() {
       item.classList.remove('portfolio-item--even', 'portfolio-item--odd');
       item.classList.add(index % 2 === 0 ? 'portfolio-item--even' : 'portfolio-item--odd');
     });
+  }
+  
+  function updateShowAllClass() {
+    if (showMoreBtnContainer) {
+      const isHidden = getComputedStyle(showMoreBtnContainer).display === 'none';
+      if (isHidden) {
+        portfolioRow.classList.add('portfolio-row--all-shown');
+      } else {
+        portfolioRow.classList.remove('portfolio-row--all-shown');
+      }
+    }
   }
   
   function filterItems(filterValue) {
@@ -82,10 +102,10 @@ export function filterInit() {
     updateItemClasses(filteredItems);
     
     if (filteredItems.length <= itemsToShow) {
-      if (showMoreBtn) showMoreBtn.parentElement.style.display = 'none';
+      if (showMoreBtnContainer) showMoreBtnContainer.style.display = 'none';
       animateItems(filteredItems);
     } else {
-      if (showMoreBtn) showMoreBtn.parentElement.style.display = '';
+      if (showMoreBtnContainer) showMoreBtnContainer.style.display = '';
       const visibleItems = filteredItems.slice(0, itemsToShow);
       animateItems(visibleItems);
       
@@ -104,47 +124,50 @@ export function filterInit() {
       portfolioRow.classList.remove('portfolio-row--limited');
     }
     
+    updateShowAllClass();
     setTimeout(() => portfolioRow.classList.remove('portfolio-row--filtering'), 600);
   }
   
   function init() {
-		setupInitialClasses();
-		
-		if (portfolioItems.length <= itemsToShow) {
-			if (showMoreBtn && showMoreBtn.parentElement) {
-				showMoreBtn.parentElement.style.display = 'none';
-			}
-		} else {
-			portfolioRow.classList.add('portfolio-row--limited');
-			const visibleHeight = calculateVisibleHeight(Array.from(portfolioItems));
-			portfolioRow.style.setProperty('--visible-height', `${visibleHeight}px`);
-			
-			Array.from(portfolioItems).slice(itemsToShow).forEach(item => {
-				item.classList.add('portfolio-item--hidden');
-			});
-		}
-		
-		if (filterBtns && filterBtns.length) {
-			filterBtns.forEach(btn => {
-				btn.addEventListener('click', function() {
-					let filterValue = this.getAttribute('data-filter') || 'all';
-					
-					const activeEl = document.querySelector('.js-filter .is-active');
-					if (activeEl) activeEl.classList.remove('is-active');
-					
-					const navItem = this.closest('li');
-					if (navItem) navItem.classList.add('is-active');
-					
-					filterItems(filterValue);
-				});
-			});
-		}
-	}
+    setupInitialClasses();
+    
+    if (portfolioItems.length <= itemsToShow) {
+      if (showMoreBtnContainer) {
+        showMoreBtnContainer.style.display = 'none';
+      }
+    } else {
+      portfolioRow.classList.add('portfolio-row--limited');
+      const visibleHeight = calculateVisibleHeight(Array.from(portfolioItems));
+      portfolioRow.style.setProperty('--visible-height', `${visibleHeight}px`);
+      
+      Array.from(portfolioItems).slice(itemsToShow).forEach(item => {
+        item.classList.add('portfolio-item--hidden');
+      });
+    }
+    
+    updateShowAllClass();
+    
+    if (filterBtns && filterBtns.length) {
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          let filterValue = this.getAttribute('data-filter') || 'all';
+          
+          const activeEl = document.querySelector('.js-filter .is-active');
+          if (activeEl) activeEl.classList.remove('is-active');
+          
+          const navItem = this.closest('li');
+          if (navItem) navItem.classList.add('is-active');
+          
+          filterItems(filterValue);
+        });
+      });
+    }
+  }
   
   if (showMoreBtn) {
     showMoreBtn.addEventListener('click', function() {
       portfolioRow.classList.remove('portfolio-row--limited');
-      if (this.parentElement) this.parentElement.style.display = 'none';
+      if (showMoreBtnContainer) showMoreBtnContainer.style.display = 'none';
       
       const filteredItems = Array.from(portfolioItems).filter(item => {
         if (currentFilter === 'all') return getComputedStyle(item).display !== 'none';
@@ -154,6 +177,7 @@ export function filterInit() {
       
       updateItemClasses(filteredItems);
       animateItems(filteredItems.slice(itemsToShow));
+      updateShowAllClass();
     });
   }
   
@@ -162,6 +186,12 @@ export function filterInit() {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
       if (portfolioRow && portfolioRow.classList.contains('portfolio-row--limited')) {
+        const filteredItems = Array.from(portfolioItems).filter(item => {
+          if (currentFilter === 'all') return getComputedStyle(item).display !== 'none';
+          const categories = (item.getAttribute('data-category') || '').split(' ');
+          return categories.includes(currentFilter) && getComputedStyle(item).display !== 'none';
+        });
+        
         const visibleHeight = calculateVisibleHeight(filteredItems);
         portfolioRow.style.setProperty('--visible-height', `${visibleHeight}px`);
       }
